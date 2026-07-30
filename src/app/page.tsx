@@ -58,7 +58,7 @@ export default function LandingPage() {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "Meowney",
-    "image": "https://meowney.vercel.app/favicon.ico",
+    "image": "https://meowney.vercel.app/og-image.png",
     "description": "Aplicativo 100% privado e local para controle financeiro e gestão de gastos com pets.",
     "brand": {
       "@type": "Brand",

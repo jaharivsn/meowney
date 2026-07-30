@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     url: "https://meowney.vercel.app",
     siteName: "Meowney",
     type: "website",
-    images: [{ url: "/favicon.ico", width: 1200, height: 630 }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Meowney | Finanças Felinas & Controle de Gastos",
     description: "Controle os gastos do seu pet e os seus de forma 100% privada e local no navegador. Crie cofrinhos, organize metas e economize hoje.",
-    images: ["/favicon.ico"],
+    images: ["/og-image.png"],
   },
   icons: {
     icon: "/favicon.ico",
