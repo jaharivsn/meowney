@@ -3,6 +3,7 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://meowney.vercel.app"),
   title: "Meowney | Finanças Felinas & Controle de Gastos",
   description: "Controle os gastos do seu pet e os seus de forma 100% privada e local no navegador. Crie cofrinhos, organize metas e economize hoje.",
   openGraph: {
