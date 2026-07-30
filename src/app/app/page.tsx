@@ -247,7 +247,7 @@ export default function Dashboard() {
               <h3 className="font-headline-md text-headline-md text-soft-charcoal">
                 Rações Recentes
               </h3>
-              <Link href="/expenses" className="text-primary font-label-md text-label-md">
+              <Link href="/app/expenses" className="text-primary font-label-md text-label-md">
                 Ver Tudo
               </Link>
             </div>
@@ -323,7 +323,7 @@ export default function Dashboard() {
 
           {/* Floating Action Button */}
           <Link
-            href="/add"
+            href="/app/add"
             className="fixed bottom-24 right-6 w-16 h-16 bg-sakura-pink text-primary rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-90 transition-all z-40 group overflow-hidden"
             id="addExpenseBtn"
             onClick={(e) => {

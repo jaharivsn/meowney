@@ -53,7 +53,7 @@ export default function AddExpense() {
       date: dateToUse,
     });
 
-    router.push("/expenses");
+    router.push("/app/expenses");
   };
 
   return (
