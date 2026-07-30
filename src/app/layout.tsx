@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { BottomNav } from "@/components/BottomNav";
-import { TutorialModal } from "@/components/TutorialModal";
+
 
 export const metadata: Metadata = {
   title: "Meowney",
@@ -29,8 +28,6 @@ export default function RootLayout({
       </head>
       <body className="bg-background font-body-md text-on-background antialiased">
         {children}
-        <BottomNav />
-        <TutorialModal />
       </body>
     </html>
   );

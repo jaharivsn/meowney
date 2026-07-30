@@ -7,10 +7,10 @@ export function BottomNav() {
   const pathname = usePathname();
 
   const links = [
-    { href: "/", icon: "pets", label: "Início" },
-    { href: "/expenses", icon: "receipt_long", label: "Gastos" },
-    { href: "/goals", icon: "stars", label: "Metas" },
-    { href: "/profile", icon: "account_circle", label: "Perfil" },
+    { href: "/app", icon: "pets", label: "Início" },
+    { href: "/app/expenses", icon: "receipt_long", label: "Gastos" },
+    { href: "/app/goals", icon: "stars", label: "Metas" },
+    { href: "/app/profile", icon: "account_circle", label: "Perfil" },
   ];
 
   return (
