@@ -116,6 +116,10 @@ export default function LandingPage() {
             answer="Sim! Apesar do tema felino e fofo, você pode criar categorias e usar o Meowney para controlar totalmente as suas próprias finanças."
           />
           <FaqItem 
+            question="Posso baixar no meu celular?"
+            answer="Sim! O Meowney funciona como um aplicativo nativo (PWA). No iPhone (Safari), toque no botão de Compartilhar e depois em 'Adicionar à Tela de Início'. No Android (Chrome), toque nos três pontinhos e selecione 'Adicionar à tela inicial'."
+          />
+          <FaqItem 
             question="É gratuito?"
             answer="Totalmente gratuito e sem anúncios. Feito de coração para a comunidade e para os pets."
           />

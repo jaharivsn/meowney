@@ -1,0 +1,16 @@
+{
+  "name": "Meowney",
+  "short_name": "Meowney",
+  "description": "Kawaii Financial Tracker",
+  "start_url": "/app",
+  "display": "standalone",
+  "background_color": "#FCF9F6",
+  "theme_color": "#FFC0CB",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
