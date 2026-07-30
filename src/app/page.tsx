@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { useState } from "react";
+import Script from "next/script";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -14,8 +15,66 @@ const stagger: Variants = {
 };
 
 export default function LandingPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Meus dados vão vazar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não! O Meowney é um aplicativo offline-first. Todos os seus dados financeiros ficam armazenados apenas no armazenamento local do seu próprio navegador."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Serve pra gastos pessoais?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim! Apesar do tema felino e fofo, você pode criar categorias e usar o Meowney para controlar totalmente as suas próprias finanças."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso baixar no meu celular?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim! O Meowney funciona como um aplicativo nativo (PWA). No iPhone (Safari), toque no botão de Compartilhar e depois em 'Adicionar à Tela de Início'. No Android (Chrome), toque nos três pontinhos e selecione 'Adicionar à tela inicial'."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "É gratuito?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Totalmente gratuito e sem anúncios. Feito de coração para a comunidade e para os pets."
+        }
+      }
+    ]
+  };
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Meowney",
+    "image": "https://meowney.vercel.app/favicon.ico",
+    "description": "Aplicativo 100% privado e local para controle financeiro e gestão de gastos com pets.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Meowney"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "BRL",
+      "price": "0.00"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-on-background flex flex-col font-body-md antialiased overflow-x-hidden">
+      <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <Script id="product-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       
       {/* Hero Section */}
       <section className="relative px-6 pt-32 pb-24 md:pt-48 md:pb-32 max-w-5xl mx-auto flex flex-col items-center text-center">
