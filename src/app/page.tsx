@@ -209,7 +209,7 @@ export default function LandingPage() {
           <div className="flex-1 text-center md:text-left">
             <div className="w-16 h-16 bg-sakura-pink/20 rounded-2xl flex items-center justify-center text-primary text-2xl font-bold mb-6 mx-auto md:mx-0">2</div>
             <h3 className="text-3xl font-bold mb-4">Cat-Stashes: Aposente o porquinho</h3>
-            <p className="text-lg text-on-surface-variant leading-relaxed">Quer comprar um arranhador novo? Crie uma "Stash" (meta de economia), defina o valor e veja a barra de progresso subir até alcançar o sonho do seu pet.</p>
+            <p className="text-lg text-on-surface-variant leading-relaxed">Quer comprar um arranhador novo? Crie uma &quot;Stash&quot; (meta de economia), defina o valor e veja a barra de progresso subir até alcançar o sonho do seu pet.</p>
           </div>
           <div className="flex-1 relative flex justify-center w-full">
             <div className="relative w-[80%] sm:w-[280px] aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-black shadow-2xl border-[8px] border-surface-variant/30">
@@ -279,7 +279,7 @@ export default function LandingPage() {
             <div className="bg-surface p-6 rounded-2xl border border-surface-variant/30 flex-1 shadow-sm text-left">
               <div className="flex text-[#FFD700] mb-3">★★★★★</div>
               <p className="text-on-surface-variant font-body-md mb-4 leading-relaxed">
-                "Finalmente consegui separar os gastos com sachês e vacinas do meu cartão principal. A interface é incrivelmente fofa e fácil de usar!"
+                &quot;Finalmente consegui separar os gastos com sachês e vacinas do meu cartão principal. A interface é incrivelmente fofa e fácil de usar!&quot;
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-sakura-pink/30 flex items-center justify-center font-bold text-primary">C</div>
@@ -293,7 +293,7 @@ export default function LandingPage() {
             <div className="bg-surface p-6 rounded-2xl border border-surface-variant/30 flex-1 shadow-sm text-left">
               <div className="flex text-[#FFD700] mb-3">★★★★★</div>
               <p className="text-on-surface-variant font-body-md mb-4 leading-relaxed">
-                "As Cat-Stashes salvaram minha vida. Guardei certinho pro arranhador torre que o Simba tanto queria. 10/10."
+                &quot;As Cat-Stashes salvaram minha vida. Guardei certinho pro arranhador torre que o Simba tanto queria. 10/10.&quot;
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-mint-fresh/30 flex items-center justify-center font-bold text-tertiary">M</div>
