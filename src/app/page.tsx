@@ -311,14 +311,14 @@ export default function LandingPage() {
       {/* Benefits Section */}
       <section className="bg-surface py-16 md:py-20 px-6 border-t border-surface-variant/20 z-10">
         <div className="max-w-5xl mx-auto">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            <motion.div variants={fadeUp} className="bg-surface-container-lowest p-8 rounded-2xl border border-surface-variant/40 hover:border-sakura-pink/50 transition-colors">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp} 
+              className="bg-surface-container-lowest p-8 rounded-2xl border border-surface-variant/40 hover:border-sakura-pink/50 transition-colors"
+            >
               <span className="material-symbols-outlined text-4xl text-primary mb-4 block">savings</span>
               <h3 className="font-title-md text-xl font-bold mb-3">Saldo Fácil</h3>
               <p className="text-on-surface-variant text-sm leading-relaxed">
@@ -326,7 +326,13 @@ export default function LandingPage() {
               </p>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="bg-surface-container-lowest p-8 rounded-2xl border border-surface-variant/40 hover:border-sakura-pink/50 transition-colors">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp} 
+              className="bg-surface-container-lowest p-8 rounded-2xl border border-surface-variant/40 hover:border-sakura-pink/50 transition-colors"
+            >
               <span className="material-symbols-outlined text-4xl text-primary mb-4 block">lock</span>
               <h3 className="font-title-md text-xl font-bold mb-3">100% Privado</h3>
               <p className="text-on-surface-variant text-sm leading-relaxed">
@@ -334,14 +340,20 @@ export default function LandingPage() {
               </p>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="bg-surface-container-lowest p-8 rounded-2xl border border-surface-variant/40 hover:border-sakura-pink/50 transition-colors">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp} 
+              className="bg-surface-container-lowest p-8 rounded-2xl border border-surface-variant/40 hover:border-sakura-pink/50 transition-colors"
+            >
               <span className="material-symbols-outlined text-4xl text-primary mb-4 block">stars</span>
               <h3 className="font-title-md text-xl font-bold mb-3">Gestão de Metas</h3>
               <p className="text-on-surface-variant text-sm leading-relaxed">
                 Crie cofrinhos (stashes) para ração premium, vacinas ou novos brinquedos, e alcance seus objetivos passo a passo.
               </p>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
