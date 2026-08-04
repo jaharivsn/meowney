@@ -95,7 +95,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative px-6 pt-32 pb-24 md:pt-40 md:pb-40 max-w-[1400px] mx-auto flex flex-col items-center text-center gap-12 overflow-hidden">
+      <section className="relative px-6 pt-32 pb-32 md:pt-40 md:pb-48 max-w-[1400px] mx-auto flex flex-col items-center text-center gap-12 overflow-hidden">
         <div className="flex flex-col items-center z-10">
           <motion.h1 
             initial="hidden"
@@ -161,7 +161,7 @@ export default function LandingPage() {
       </section>
 
       {/* Authority Section (Social Proof V2) */}
-      <section className="bg-surface-variant/5 border-y border-surface-variant/10 py-10 overflow-hidden">
+      <section className="bg-surface-variant/5 border-y border-surface-variant/10 py-12 md:py-16 overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
           <p className="font-bold text-sm tracking-widest uppercase">Destaque em:</p>
           <div className="flex gap-10 text-xl font-display-lg font-bold">
@@ -174,7 +174,7 @@ export default function LandingPage() {
       </section>
 
       {/* Como Funciona (Zig-zag Mobile-First) */}
-      <section className="py-24 px-6 max-w-6xl mx-auto flex flex-col gap-24 overflow-hidden">
+      <section className="py-24 md:py-32 px-6 max-w-6xl mx-auto flex flex-col gap-24 md:gap-32 overflow-hidden">
         <div className="text-center mb-4">
           <p className="font-label-md text-sakura-pink uppercase tracking-widest font-bold mb-4">O Passo a Passo</p>
           <h2 className="font-title-lg text-4xl md:text-5xl font-bold text-on-surface">Organização na palma da pata</h2>
@@ -237,7 +237,8 @@ export default function LandingPage() {
       </section>
 
       {/* Tabela de Preços (Ancoragem) */}
-      <section className="py-24 px-6 max-w-4xl mx-auto">
+      <section className="relative py-24 md:py-32 px-6 max-w-4xl mx-auto z-10">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-full bg-sakura-pink/20 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
         <div className="text-center mb-12">
           <h2 className="font-title-lg text-3xl font-bold mb-4">Planos Transparentes</h2>
           <p className="text-on-surface-variant">Porque cuidar do pet já custa caro o suficiente.</p>
@@ -269,7 +270,7 @@ export default function LandingPage() {
       </section>
 
       {/* Social Proof Section (New) */}
-      <section className="bg-surface-container-lowest py-20 px-6 border-t border-surface-variant/10 relative overflow-hidden">
+      <section className="bg-surface-container-lowest py-24 md:py-32 px-6 border-t border-surface-variant/10 relative overflow-hidden z-10">
         <div className="absolute top-1/2 left-0 -translate-y-1/2 opacity-[0.03] pointer-events-none">
           <Image src="/kawaii_paw_icon.jpg" alt="Paw" width={400} height={400} className="mix-blend-multiply" />
         </div>
@@ -308,7 +309,7 @@ export default function LandingPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="bg-surface py-24 px-6 border-t border-surface-variant/20">
+      <section className="bg-surface py-24 md:py-32 px-6 border-t border-surface-variant/20 z-10">
         <div className="max-w-5xl mx-auto">
           <motion.div 
             initial="hidden"
@@ -345,7 +346,7 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 px-6 max-w-3xl mx-auto w-full">
+      <section className="py-24 md:py-32 px-6 max-w-3xl mx-auto w-full z-10 relative">
         <motion.h2 
           initial="hidden"
           whileInView="visible"
