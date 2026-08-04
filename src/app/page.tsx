@@ -356,13 +356,7 @@ export default function LandingPage() {
           Dúvidas Frequentes
         </motion.h2>
         
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="space-y-4"
-        >
+        <div className="space-y-4">
           <FaqItem 
             question="Meus dados vão vazar?"
             answer="Não! O Meowney é um aplicativo offline-first. Todos os seus dados financeiros ficam armazenados apenas no armazenamento local do seu próprio navegador."
@@ -379,7 +373,7 @@ export default function LandingPage() {
             question="É gratuito?"
             answer="Totalmente gratuito e sem anúncios. Feito de coração para a comunidade e para os pets."
           />
-        </motion.div>
+        </div>
       </section>
 
       {/* Footer */}
@@ -418,7 +412,13 @@ function FaqItem({ question, answer }: { question: string, answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div variants={fadeUp} className="border border-sakura-pink/30 rounded-2xl overflow-hidden bg-surface-container-lowest hover:border-sakura-pink/60 hover:shadow-md transition-all group">
+    <motion.div 
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeUp} 
+      className="border border-sakura-pink/30 rounded-2xl overflow-hidden bg-surface-container-lowest hover:border-sakura-pink/60 hover:shadow-md transition-all group"
+    >
       <button 
         onClick={() => setIsOpen(!isOpen)}
         className="w-full px-6 py-5 text-left flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary transition-colors group-hover:bg-sakura-pink/5"
