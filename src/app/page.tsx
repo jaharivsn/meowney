@@ -270,7 +270,7 @@ export default function LandingPage() {
       </section>
 
       {/* Social Proof Section (New) */}
-      <section className="bg-surface-container-lowest py-24 md:py-32 px-6 border-t border-surface-variant/10 relative overflow-hidden z-10">
+      <section className="bg-surface-container-lowest py-16 md:py-20 px-6 border-t border-surface-variant/10 relative overflow-hidden z-10">
         <div className="absolute top-1/2 left-0 -translate-y-1/2 opacity-[0.03] pointer-events-none">
           <Image src="/kawaii_paw_icon.jpg" alt="Paw" width={400} height={400} className="mix-blend-multiply" />
         </div>
@@ -309,7 +309,7 @@ export default function LandingPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="bg-surface py-24 md:py-32 px-6 border-t border-surface-variant/20 z-10">
+      <section className="bg-surface py-16 md:py-20 px-6 border-t border-surface-variant/20 z-10">
         <div className="max-w-5xl mx-auto">
           <motion.div 
             initial="hidden"
@@ -346,7 +346,7 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 md:py-32 px-6 max-w-3xl mx-auto w-full z-10 relative">
+      <section className="pt-12 md:pt-16 pb-24 md:pb-32 px-6 max-w-3xl mx-auto w-full z-10 relative">
         <motion.h2 
           initial="hidden"
           whileInView="visible"
