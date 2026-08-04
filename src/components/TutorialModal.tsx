@@ -202,7 +202,7 @@ export function TutorialModal({ isOpen: propsIsOpen, onClose }: TutorialModalPro
 
                 {/* Text Content */}
                 <div className="flex flex-col gap-1.5 max-w-xs">
-                  <h2 className="font-headline-md text-headline-md text-on-surface">
+                  <h2 data-testid="onboarding-title" className="font-headline-md text-headline-md text-on-surface">
                     {step.title}
                   </h2>
                   <p className="font-label-md text-label-md text-primary font-semibold">
@@ -241,16 +241,18 @@ export function TutorialModal({ isOpen: propsIsOpen, onClose }: TutorialModalPro
             <div className="flex items-center gap-2">
               {currentStep > 0 && (
                 <button
+                  data-testid="onboarding-prev-btn"
                   onClick={handlePrev}
-                  className="px-4 py-2 rounded-xl text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors"
+                  className="px-4 py-2 rounded-xl text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   Anterior
                 </button>
               )}
 
               <button
+                data-testid="onboarding-next-btn"
                 onClick={handleNext}
-                className="px-5 py-2.5 rounded-xl bg-sakura-pink hover:bg-sakura-pink/90 text-on-primary-container font-label-md text-label-md font-bold shadow-sm transition-all active:scale-95 flex items-center gap-1"
+                className="px-5 py-2.5 rounded-xl bg-sakura-pink hover:bg-sakura-pink/90 text-on-primary-container font-label-md text-label-md font-bold shadow-sm transition-all active:scale-95 flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 <span>{currentStep === STEPS.length - 1 ? "Começar! ✨" : "Próximo"}</span>
                 {currentStep < STEPS.length - 1 && (

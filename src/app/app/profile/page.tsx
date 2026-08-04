@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Header } from "@/components/Header";
 import { TutorialModal } from "@/components/TutorialModal";
 import { useMeowneyStore, useHydratedStore, DEFAULT_STATE } from "@/lib/store";
@@ -261,6 +262,14 @@ export default function Profile() {
                 );
               })}
             </div>
+          </div>
+
+          {/* Back to Home CTA */}
+          <div className="pt-2 flex justify-center w-full">
+            <Link href="/" className="px-6 py-4 flex items-center justify-center gap-2 text-on-surface bg-surface-container-low font-bold hover:bg-sakura-pink/20 transition-colors rounded-xl shadow-sm w-full border border-surface-variant/20">
+              <span className="material-symbols-outlined">home</span>
+              Voltar para o Site Inicial
+            </Link>
           </div>
 
           {/* Footer Info */}

@@ -118,6 +118,7 @@ export default function Dashboard() {
                 Saldo Purr-feito
               </p>
               <h1 
+                data-testid="dashboard-balance"
                 className="font-display-lg text-display-lg text-soft-charcoal flex items-baseline gap-1 cursor-pointer hover:opacity-80 transition-opacity"
                 onClick={() => {
                   const newBalance = window.prompt("Digite o novo saldo (apenas números):", balance.toString());

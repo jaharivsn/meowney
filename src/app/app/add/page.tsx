@@ -64,12 +64,14 @@ export default function AddExpense() {
         <div className="flex justify-center pt-6 px-margin-mobile">
           <div className="bg-surface-container flex rounded-full p-1 w-full max-w-sm">
             <button
+              data-testid="expense-tab"
               onClick={() => setTransactionType('expense')}
               className={`flex-1 py-2 rounded-full font-label-md transition-colors ${transactionType === 'expense' ? 'bg-sakura-pink text-primary shadow-sm' : 'text-on-surface-variant'}`}
             >
               Gasto (-)
             </button>
             <button
+              data-testid="income-tab"
               onClick={() => setTransactionType('income')}
               className={`flex-1 py-2 rounded-full font-label-md transition-colors ${transactionType === 'income' ? 'bg-mint-fresh text-tertiary shadow-sm' : 'text-on-surface-variant'}`}
             >
@@ -89,6 +91,7 @@ export default function AddExpense() {
                 R$
               </span>
               <input
+                data-testid="amount-input"
                 autoFocus
                 className="bg-transparent border-none text-center font-data-mono text-display-lg text-on-background focus:ring-0 w-48 placeholder:text-surface-variant outline-none"
                 placeholder="0,00"
@@ -167,6 +170,7 @@ export default function AddExpense() {
                 Nota
               </label>
               <textarea
+                data-testid="note-input"
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 className="bg-transparent border-none focus:ring-0 font-body-md text-on-surface-variant placeholder:text-outline-variant resize-none h-20 w-full outline-none"
@@ -178,8 +182,9 @@ export default function AddExpense() {
           {/* Primary Action */}
           <div className="relative z-10 mt-4 animate-in fade-in slide-in-from-bottom-8 duration-500 delay-500">
             <button
+              data-testid="submit-btn"
               type="submit"
-              className="w-full bg-sakura-pink text-soft-charcoal py-5 rounded-full font-headline-md text-headline-md shadow-xl hover:shadow-sakura-pink/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 group"
+              className="w-full bg-sakura-pink text-soft-charcoal py-5 rounded-full font-headline-md text-headline-md shadow-xl hover:shadow-sakura-pink/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               <span className="material-symbols-outlined group-hover:rotate-12 transition-transform">
                 pets
