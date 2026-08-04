@@ -149,8 +149,8 @@ export default function LandingPage() {
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-50"></div>
           </div>
 
-          {/* Android Frame (Secundário) */}
-          <div className="relative w-[85%] sm:w-[320px] aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-black z-20 shadow-[0_30px_60px_rgba(0,0,0,0.2)] border-[8px] border-surface-variant/20 md:-rotate-3 origin-bottom transition-all hover:rotate-0 hover:scale-105 duration-500 md:-ml-20 lg:-ml-12 mt-[-40px] md:mt-16">
+          {/* Android Frame (Secundário - Oculto no Mobile) */}
+          <div className="hidden md:block relative w-[85%] sm:w-[320px] aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-black z-20 shadow-[0_30px_60px_rgba(0,0,0,0.2)] border-[8px] border-surface-variant/20 md:-rotate-3 origin-bottom transition-all hover:rotate-0 hover:scale-105 duration-500 md:-ml-20 lg:-ml-12 mt-[-40px] md:mt-16">
             {/* Camera Hole */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-black z-40 shadow-inner"></div>
             <Image src="/hero-mockup-mobile.png" alt="Meowney no Android" fill className="object-cover object-top" priority />
@@ -418,22 +418,25 @@ function FaqItem({ question, answer }: { question: string, answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div variants={fadeUp} className="border border-surface-variant/30 rounded-xl overflow-hidden bg-surface-container-lowest hover:border-surface-variant/60 transition-colors">
+    <motion.div variants={fadeUp} className="border border-sakura-pink/30 rounded-2xl overflow-hidden bg-surface-container-lowest hover:border-sakura-pink/60 hover:shadow-md transition-all group">
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-6 py-5 text-left flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary transition-colors hover:bg-surface-variant/10"
+        className="w-full px-6 py-5 text-left flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary transition-colors group-hover:bg-sakura-pink/5"
       >
-        <span className="font-title-sm font-bold">{question}</span>
-        <span className={`material-symbols-outlined transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
+        <div className="flex items-center gap-4">
+          <span className="material-symbols-outlined text-primary bg-sakura-pink/20 p-2 rounded-full hidden sm:block">help</span>
+          <span className="font-title-sm font-bold text-on-surface group-hover:text-primary transition-colors">{question}</span>
+        </div>
+        <span className={`material-symbols-outlined text-primary transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
           expand_more
         </span>
       </button>
       <motion.div 
         initial={false}
         animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-        className="overflow-hidden"
+        className="overflow-hidden bg-surface-variant/5"
       >
-        <div className="px-6 pb-5 text-on-surface-variant text-sm leading-relaxed border-t border-surface-variant/10 pt-4">
+        <div className="px-6 pb-6 pt-2 text-on-surface-variant text-base leading-relaxed sm:pl-[72px]">
           {answer}
         </div>
       </motion.div>
