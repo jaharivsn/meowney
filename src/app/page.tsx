@@ -133,27 +133,139 @@ export default function LandingPage() {
           </motion.div>
         </div>
 
-        {/* Multi-Device Mockup (iPhone & Android) */}
+        {/* Multi-Device Mockup (iPhone & Android) - MOBILE FIRST STACKING */}
         <motion.div 
-          className="relative w-full max-w-4xl h-[450px] md:h-[650px] mt-8 flex justify-center items-end"
+          className="relative w-full max-w-4xl mt-8 flex flex-col md:flex-row justify-center items-center gap-12 md:gap-8 perspective-1000"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         >
-          {/* Android Frame (Left) */}
-          <div className="absolute bottom-0 left-[10%] md:left-[20%] w-[45%] md:w-[32%] aspect-[9/19] rounded-[2rem] md:rounded-[2.5rem] rounded-b-none md:rounded-b-none overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)] border-x-[6px] border-t-[6px] border-surface-variant/20 bg-surface z-20 -rotate-6 origin-bottom transition-transform hover:rotate-0 hover:z-40 duration-500">
-            {/* Camera Hole */}
-            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-black z-30"></div>
-            <Image src="/hero-mockup-mobile.png" alt="Meowney no Android" fill className="object-cover object-top" priority />
+          {/* iPhone Frame (Principal Mobile) */}
+          <div className="relative w-[85%] sm:w-[320px] aspect-[9/19] rounded-[3rem] overflow-hidden bg-black z-30 shadow-[0_40px_80px_rgba(0,0,0,0.25)] border-[12px] border-surface-variant/30 md:rotate-3 origin-bottom transition-all hover:rotate-0 hover:scale-105 duration-500 ring-1 ring-white/10">
+            {/* Dynamic Island */}
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[30%] h-7 rounded-full bg-black z-40 shadow-inner"></div>
+            <Image src="/hero-mockup-mobile.png" alt="Meowney no iPhone" fill className="object-cover object-top" priority />
+            {/* Glossy Reflection overlay */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-50"></div>
           </div>
 
-          {/* iPhone Frame (Right) */}
-          <div className="absolute bottom-0 right-[10%] md:right-[20%] w-[45%] md:w-[32%] aspect-[9/19] rounded-[2.5rem] md:rounded-[3rem] rounded-b-none md:rounded-b-none overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.25)] border-x-[8px] border-t-[8px] border-surface-variant/30 bg-surface z-30 rotate-6 origin-bottom transition-transform hover:rotate-0 hover:z-40 duration-500">
-            {/* Dynamic Island */}
-            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[25%] h-6 rounded-full bg-black z-30"></div>
-            <Image src="/hero-mockup-mobile.png" alt="Meowney no iPhone" fill className="object-cover object-top" priority />
+          {/* Android Frame (Secundário) */}
+          <div className="relative w-[85%] sm:w-[320px] aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-black z-20 shadow-[0_30px_60px_rgba(0,0,0,0.2)] border-[8px] border-surface-variant/20 md:-rotate-3 origin-bottom transition-all hover:rotate-0 hover:scale-105 duration-500 md:-ml-20 lg:-ml-12 mt-[-40px] md:mt-16">
+            {/* Camera Hole */}
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-black z-40 shadow-inner"></div>
+            <Image src="/hero-mockup-mobile.png" alt="Meowney no Android" fill className="object-cover object-top" priority />
+            {/* Glossy Reflection overlay */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-50"></div>
           </div>
         </motion.div>
+      </section>
+
+      {/* Authority Section (Social Proof V2) */}
+      <section className="bg-surface-variant/5 border-y border-surface-variant/10 py-10 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+          <p className="font-bold text-sm tracking-widest uppercase">Destaque em:</p>
+          <div className="flex gap-10 text-xl font-display-lg font-bold">
+            <span>TechCrunch</span>
+            <span>Gato & Cia</span>
+            <span>App of the Day</span>
+            <span className="hidden md:inline">Forbes Pets</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Como Funciona (Zig-zag Mobile-First) */}
+      <section className="py-24 px-6 max-w-6xl mx-auto flex flex-col gap-24 overflow-hidden">
+        <div className="text-center mb-4">
+          <p className="font-label-md text-sakura-pink uppercase tracking-widest font-bold mb-4">O Passo a Passo</p>
+          <h2 className="font-title-lg text-4xl md:text-5xl font-bold text-on-surface">Organização na palma da pata</h2>
+        </div>
+
+        {/* Step 1 */}
+        <motion.div 
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
+          className="flex flex-col md:flex-row items-center gap-12"
+        >
+          <div className="flex-1 order-2 md:order-1 relative flex justify-center w-full">
+            <div className="relative w-[80%] sm:w-[280px] aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-black shadow-2xl border-[8px] border-surface-variant/30">
+              <Image src="/add-mockup.png" alt="Adicionar Gasto" fill className="object-cover" />
+            </div>
+            <div className="absolute -bottom-6 -left-6 bg-mint-fresh text-on-tertiary-container px-6 py-3 rounded-2xl shadow-xl font-bold flex items-center gap-2 rotate-[-5deg]">
+              <span className="material-symbols-outlined">bolt</span>
+              Ultra Rápido
+            </div>
+          </div>
+          <div className="flex-1 order-1 md:order-2 text-center md:text-left">
+            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-2xl font-bold mb-6 mx-auto md:mx-0">1</div>
+            <h3 className="text-3xl font-bold mb-4">Adicione gastos num piscar de olhos</h3>
+            <p className="text-lg text-on-surface-variant leading-relaxed">Não perca tempo preenchendo planilhas chatas. Com dois toques, você registra a compra daquele sachê premium ou a consulta no veterinário. O saldo atualiza na hora.</p>
+          </div>
+        </motion.div>
+
+        {/* Step 2 */}
+        <motion.div 
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
+          className="flex flex-col md:flex-row items-center gap-12"
+        >
+          <div className="flex-1 text-center md:text-left">
+            <div className="w-16 h-16 bg-sakura-pink/20 rounded-2xl flex items-center justify-center text-primary text-2xl font-bold mb-6 mx-auto md:mx-0">2</div>
+            <h3 className="text-3xl font-bold mb-4">Cat-Stashes: Aposente o porquinho</h3>
+            <p className="text-lg text-on-surface-variant leading-relaxed">Quer comprar um arranhador novo? Crie uma "Stash" (meta de economia), defina o valor e veja a barra de progresso subir até alcançar o sonho do seu pet.</p>
+          </div>
+          <div className="flex-1 relative flex justify-center w-full">
+            <div className="relative w-[80%] sm:w-[280px] aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-black shadow-2xl border-[8px] border-surface-variant/30">
+              <Image src="/goals-mockup.png" alt="Cat Stashes" fill className="object-cover" />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Step 3 */}
+        <motion.div 
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
+          className="flex flex-col md:flex-row items-center gap-12"
+        >
+          <div className="flex-1 order-2 md:order-1 relative flex justify-center w-full">
+            <div className="relative w-[80%] sm:w-[280px] aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-black shadow-2xl border-[8px] border-surface-variant/30">
+              <Image src="/profile-mockup.png" alt="Perfil Privado" fill className="object-cover" />
+            </div>
+          </div>
+          <div className="flex-1 order-1 md:order-2 text-center md:text-left">
+            <div className="w-16 h-16 bg-surface-variant/30 rounded-2xl flex items-center justify-center text-on-surface text-2xl font-bold mb-6 mx-auto md:mx-0">3</div>
+            <h3 className="text-3xl font-bold mb-4">100% Offline e Privado</h3>
+            <p className="text-lg text-on-surface-variant leading-relaxed">Tudo acontece no seu próprio aparelho. Não usamos banco de dados na nuvem, não lemos suas informações e não precisamos da sua internet para funcionar.</p>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Tabela de Preços (Ancoragem) */}
+      <section className="py-24 px-6 max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="font-title-lg text-3xl font-bold mb-4">Planos Transparentes</h2>
+          <p className="text-on-surface-variant">Porque cuidar do pet já custa caro o suficiente.</p>
+        </div>
+        
+        <div className="bg-surface-container-lowest border border-sakura-pink/30 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden flex flex-col items-center text-center">
+          <div className="absolute top-0 right-0 bg-sakura-pink text-primary px-6 py-2 rounded-bl-2xl font-bold text-sm">
+            O MAIS POPULAR
+          </div>
+          
+          <span className="material-symbols-outlined text-[48px] text-primary mb-6">stars</span>
+          <h3 className="text-3xl font-bold mb-2">Cat Parent Premium</h3>
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <span className="text-2xl text-outline line-through">R$ 19,90/mês</span>
+            <span className="text-5xl font-extrabold text-primary">R$ 0,00</span>
+          </div>
+          
+          <ul className="text-left space-y-4 mb-10 text-on-surface-variant font-medium">
+            <li className="flex items-center gap-3"><span className="material-symbols-outlined text-mint-fresh">check_circle</span> Cat-Stashes (Metas) Ilimitadas</li>
+            <li className="flex items-center gap-3"><span className="material-symbols-outlined text-mint-fresh">check_circle</span> Categorias Personalizáveis</li>
+            <li className="flex items-center gap-3"><span className="material-symbols-outlined text-mint-fresh">check_circle</span> Privacidade Offline-First Total</li>
+            <li className="flex items-center gap-3"><span className="material-symbols-outlined text-mint-fresh">check_circle</span> Zero Anúncios, Para Sempre</li>
+          </ul>
+          
+          <Link href="/app" className="w-full md:w-auto px-12 py-5 bg-primary text-white rounded-2xl font-bold text-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl active:scale-95">
+            Começar Grátis Agora
+          </Link>
+        </div>
       </section>
 
       {/* Social Proof Section (New) */}

@@ -29,15 +29,22 @@ test('generate faithful mockup', async ({ page }) => {
   await page.goto('/app');
   await page.waitForTimeout(1000);
 
-  // Mobile
+  // Hero Mobile
   await page.setViewportSize({ width: 390, height: 844 });
   await page.screenshot({ path: 'public/hero-mockup-mobile.png' });
 
-  // Tablet
-  await page.setViewportSize({ width: 768, height: 1024 });
-  await page.screenshot({ path: 'public/hero-mockup-tablet.png' });
+  // Add Screen
+  await page.goto('/app/add');
+  await page.waitForTimeout(1000);
+  await page.screenshot({ path: 'public/add-mockup.png' });
 
-  // Desktop
-  await page.setViewportSize({ width: 1280, height: 832 });
-  await page.screenshot({ path: 'public/hero-mockup-desktop.png' });
+  // Goals Screen
+  await page.goto('/app/goals');
+  await page.waitForTimeout(1000);
+  await page.screenshot({ path: 'public/goals-mockup.png' });
+
+  // Profile Screen
+  await page.goto('/app/profile');
+  await page.waitForTimeout(1000);
+  await page.screenshot({ path: 'public/profile-mockup.png' });
 });
