@@ -133,24 +133,25 @@ export default function LandingPage() {
           </motion.div>
         </div>
 
-        {/* Multi-Device Mockup */}
+        {/* Multi-Device Mockup (iPhone & Android) */}
         <motion.div 
-          className="relative w-full max-w-5xl h-[400px] md:h-[600px] mt-8"
+          className="relative w-full max-w-4xl h-[450px] md:h-[650px] mt-8 flex justify-center items-end"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         >
-          {/* Desktop Monitor */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] md:w-[70%] aspect-video rounded-t-3xl overflow-hidden shadow-2xl border-x-[12px] border-t-[12px] border-surface-variant/40 bg-surface z-10 hidden md:block">
-            <Image src="/hero-mockup-desktop.png" alt="Meowney no Desktop" fill className="object-cover object-top" priority />
+          {/* Android Frame (Left) */}
+          <div className="absolute bottom-0 left-[10%] md:left-[20%] w-[45%] md:w-[32%] aspect-[9/19] rounded-[2rem] md:rounded-[2.5rem] rounded-b-none md:rounded-b-none overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)] border-x-[6px] border-t-[6px] border-surface-variant/20 bg-surface z-20 -rotate-6 origin-bottom transition-transform hover:rotate-0 hover:z-40 duration-500">
+            {/* Camera Hole */}
+            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-black z-30"></div>
+            <Image src="/hero-mockup-mobile.png" alt="Meowney no Android" fill className="object-cover object-top" priority />
           </div>
-          {/* Tablet */}
-          <div className="absolute bottom-0 right-0 md:right-10 w-[45%] md:w-[35%] aspect-[3/4] rounded-t-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] border-x-[8px] border-t-[8px] border-surface-variant/30 bg-surface z-20">
-            <Image src="/hero-mockup-tablet.png" alt="Meowney no Tablet" fill className="object-cover object-top" priority />
-          </div>
-          {/* Mobile */}
-          <div className="absolute bottom-0 left-0 md:left-16 w-[45%] md:w-[22%] aspect-[9/19] rounded-[2.5rem] rounded-b-none md:rounded-b-[2.5rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)] border-x-[6px] border-t-[6px] md:border-b-[6px] border-surface-variant/20 bg-surface z-30">
-            <Image src="/hero-mockup-mobile.png" alt="Meowney no Celular" fill className="object-cover object-top" priority />
+
+          {/* iPhone Frame (Right) */}
+          <div className="absolute bottom-0 right-[10%] md:right-[20%] w-[45%] md:w-[32%] aspect-[9/19] rounded-[2.5rem] md:rounded-[3rem] rounded-b-none md:rounded-b-none overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.25)] border-x-[8px] border-t-[8px] border-surface-variant/30 bg-surface z-30 rotate-6 origin-bottom transition-transform hover:rotate-0 hover:z-40 duration-500">
+            {/* Dynamic Island */}
+            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[25%] h-6 rounded-full bg-black z-30"></div>
+            <Image src="/hero-mockup-mobile.png" alt="Meowney no iPhone" fill className="object-cover object-top" priority />
           </div>
         </motion.div>
       </section>
@@ -270,8 +271,32 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 text-center border-t border-surface-variant/20 text-on-surface-variant text-sm mt-auto">
-        <p>© {new Date().getFullYear()} Meowney. Todos os direitos reservados.</p>
+      <footer className="bg-surface-container-lowest py-12 border-t border-surface-variant/20 mt-auto">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <div className="flex items-center gap-2 font-display-lg text-xl font-bold text-primary">
+              <span className="material-symbols-outlined text-[24px] text-sakura-pink">pets</span>
+              Meowney
+            </div>
+            <p className="text-on-surface-variant text-sm text-center md:text-left">
+              Feito com 🐾 para tutores organizados.
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-6 text-sm font-bold text-on-surface">
+            <a href="mailto:jahari.wav@gmail.com" className="hover:text-primary transition-colors flex items-center justify-center gap-2">
+              <span className="material-symbols-outlined text-[20px]">mail</span>
+              Suporte
+            </a>
+            <Link href="/app" className="hover:text-primary transition-colors flex items-center justify-center gap-2">
+              <span className="material-symbols-outlined text-[20px]">open_in_new</span>
+              Acessar App
+            </Link>
+          </div>
+        </div>
+        <div className="mt-8 pt-8 border-t border-surface-variant/10 text-center text-xs text-on-surface-variant opacity-70">
+          <p>© {new Date().getFullYear()} Meowney. Todos os direitos reservados. Local-first privacy.</p>
+        </div>
       </footer>
     </div>
   );
