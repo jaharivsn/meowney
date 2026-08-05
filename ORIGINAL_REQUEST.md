@@ -19,7 +19,7 @@ Garantir estrutura fluida mobile-first com Hero impactante, barra de autoridade,
 Dashboard com saldo editável e atualizado em tempo real, fluxo de gastos/rendas limpo em `/app/add`, metas/cofrinhos com barras de progresso em `/app/goals`, e gestão de categorias em `/app/profile`, tudo integrado via Zustand e sincronizado no LocalStorage.
 
 ### R4. Validação Responsiva Dual-Browser
-Criar `public/dual-preview.html` com viewports Desktop (1440x900) & Mobile (390x844) e executar testes de layout sem quebras e sem scroll horizontal indesejado.
+Criar `public/dual-preview.html` com viewports Desktop (1440x900) e Mobile (390x844) e executar testes de layout sem quebras e sem scroll horizontal indesejado.
 
 ## Acceptance Criteria
 

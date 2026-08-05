@@ -1,54 +1,59 @@
-# BRIEFING — 2026-07-30
+# BRIEFING — 2026-08-05
 
 ## Mission
-Implement Zod schemas and Zustand state store with LocalStorage persistence, validation, actions, and SSR hydration safety for project Meowney.
+Refactor `src/app/globals.css` and Tailwind theme configurations to establish 100% compliance with R1 Design System Stitch requirements.
 
 ## 🔒 My Identity
-- Archetype: implementer / qa / specialist
+- Archetype: implementer
 - Roles: implementer, qa, specialist
 - Working directory: d:\creative-dev\projetos\pessoal\cases\meowney\.agents\worker_m1
-- Original parent: c2e4a275-3d9e-4eac-9bc2-96950c08715c
-- Milestone: State Management & Schemas Setup
+- Original parent: 1d0ba1f0-9d7a-4934-a24a-efdc553e61e5
+- Milestone: M1: Design System Foundation
 
 ## 🔒 Key Constraints
 - Minimal change principle.
-- Strict Zod schema validation on LocalStorage hydration with safe defaults fallback.
-- Export inferred TypeScript types.
-- Ensure SSR hydration safety.
-- Zero build/TypeScript errors.
+- Purge legacy color `#864e5a` (`--color-primary`) in `src/app/globals.css`.
+- Define Stitch colors (`#FFB7C5` Sakura Pink, `#FFFDD0` Cream Milk, `#A3E4D7` Mint Fresh, `#2B2B2B` Soft Charcoal).
+- Configure typography mappings `--font-heading` ("Nunito Sans") and `--font-sans` ("Plus Jakarta Sans").
+- Implement `@utility shadow-squishy` (`box-shadow: 0 8px 0 0 #2B2B2B` with `active:translate-y-1 active:shadow-none`).
+- Verify 32px card radius (`rounded-3xl` / `rounded-[32px]`) and 16px button radius (`rounded-2xl` / `rounded-[16px]`).
+- Execute `npm run build` and `npx vitest run` to verify zero build/test errors.
 
 ## Current Parent
-- Conversation ID: c2e4a275-3d9e-4eac-9bc2-96950c08715c
-- Updated: 2026-07-30
+- Conversation ID: 1d0ba1f0-9d7a-4934-a24a-efdc553e61e5
+- Updated: 2026-08-05T12:23:30-03:00
 
 ## Task Summary
-- **What to build**: Zod schemas (`ExpenseSchema`, `GoalSchema`, `MeowneyStateSchema`), Zustand store (`useMeowneyStore`) with LocalStorage persistence and fallback validation, store actions, SSR hydration helper.
-- **Success criteria**: Package check for Zod, types exported, store actions tested and working, SSR safety hook/flag, clean build (`npm run build`).
+- **What to build**: Purged `#864e5a` and legacy theme vars in `src/app/globals.css`, configured Stitch color/font/radii tokens, created `@utility shadow-squishy`, added Vitest unit tests.
+- **Success criteria**: Clean compilation with `npm run build`, 9/9 Vitest unit tests pass (`npx vitest run`), zero `#864e5a` in `globals.css`.
+- **Interface contracts**: `PROJECT.md` & `DISPATCH.md`
+- **Code layout**: `src/app/globals.css`, `src/lib/__tests__/design-system.test.ts`
 
 ## Change Tracker
 - **Files modified**:
-  - `package.json` — added `zod` dependency
-  - `src/lib/schemas.ts` — defined Zod schemas (`ExpenseSchema`, `GoalSchema`, `MeowneyStateSchema`) and exported TypeScript types (`Expense`, `Goal`, `MeowneyState`)
-  - `src/lib/store.ts` — created Zustand store with LocalStorage persistence (`key: meowney-storage`), Zod validation on hydration, safe fallback state, actions, and `useHydratedStore` hook
-  - `src/store/useMeowneyStore.ts` — created alias module re-exporting store & types
-- **Build status**: PASS (Next.js Turbo build + TypeScript type-check passed in 3.4s)
+  - `src/app/globals.css` — Purged legacy `#864e5a` color, defined Stitch color variables (`#FFB7C5`, `#FFFDD0`, `#A3E4D7`, `#2B2B2B`), mapped `--font-heading` and `--font-sans`, fixed `--font-data-mono` fallback, added radius tokens (`--radius-3xl: 32px`, `--radius-2xl: 16px`), implemented `@utility shadow-squishy`.
+  - `src/lib/__tests__/design-system.test.ts` — Added unit test suite for M1 design system token contracts.
+- **Build status**: PASS (`npm run build` exited with code 0)
 - **Pending issues**: None
 
 ## Quality Status
-- **Build/test result**: PASS
+- **Build/test result**: PASS (9/9 Vitest tests passed)
 - **Lint status**: CLEAN
-- **Tests added/modified**: Executed unit test suite verifying schema parsing and store actions (`addExpense`, `deleteExpense`, `addGoal`, `updateGoalProgress`, `deleteGoal`, `setHasSeenTutorial`, `resetTutorial`, fallback behavior)
+- **Tests added/modified**: `src/lib/__tests__/design-system.test.ts` (5 tests for design system tokens)
 
 ## Loaded Skills
-- None loaded
+- **Source**: C:\Users\jahar\.gemini\config\skills\frontend-supremo\SKILL.md
+- **Local copy**: d:\creative-dev\projetos\pessoal\cases\meowney\.agents\worker_m1\frontend-supremo-SKILL.md
+- **Core methodology**: Production-grade frontend UI with anti-slop rules, design dials, OKLCH / modern CSS, accessibility, and high visual quality.
 
 ## Key Decisions Made
-- Implemented Zod safe parsing inside Zustand `merge` option to handle corrupted LocalStorage data safely, resetting to `DEFAULT_STATE` if invalid.
-- Included `isHydrated` state flag and `useHydratedStore` helper hook for Next.js SSR hydration safety.
-- Re-exported store from `src/store/useMeowneyStore.ts` to support both import conventions.
+- Replaced all occurrences of `#864e5a` in `src/app/globals.css` with Soft Charcoal `#2B2B2B` / Sakura Pink `#FFB7C5`.
+- Added explicit typography tokens `--font-heading` and `--font-sans` in `@theme` and fixed invalid `monospace` fallback on `--font-data-mono`.
+- Added custom `@utility shadow-squishy` with `:active` press translation and `box-shadow` reset, plus `--shadow-squishy` token in `@theme`.
+- Defined `--radius-3xl: 32px` and `--radius-2xl: 16px` in `@theme` for 32px card radius and 16px button radius.
 
 ## Artifact Index
-- `.agents/worker_m1/ORIGINAL_REQUEST.md` — Original prompt text
-- `.agents/worker_m1/BRIEFING.md` — Agent briefing & working context
-- `.agents/worker_m1/progress.md` — Agent progress log
-- `.agents/worker_m1/handoff.md` — Final handoff report
+- `d:\creative-dev\projetos\pessoal\cases\meowney\.agents\worker_m1\DISPATCH.md`
+- `d:\creative-dev\projetos\pessoal\cases\meowney\.agents\worker_m1\BRIEFING.md`
+- `d:\creative-dev\projetos\pessoal\cases\meowney\.agents\worker_m1\progress.md`
+- `d:\creative-dev\projetos\pessoal\cases\meowney\.agents\worker_m1\handoff.md`

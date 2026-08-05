@@ -21,8 +21,8 @@
   --color-mint-fresh: #A3E4D7;
   --color-soft-charcoal: #2B2B2B;
   --color-surface-off-white: #FAF9F6;
-  --color-surface: #fcf9f8;
-  --color-on-surface: #1b1c1c;
+  --color-surface: #FFFDD0;
+  --color-on-surface: #2B2B2B;
   --color-surface-variant: #e4e2e1;
   --color-on-surface-variant: #514345;
   --color-surface-container-lowest: #ffffff;
@@ -31,17 +31,17 @@
   --color-surface-container-high: #eae7e7;
   --color-surface-container-highest: #e4e2e1;
   --color-surface-dim: #dcd9d9;
-  --color-surface-bright: #fcf9f8;
-  --color-surface-tint: #864e5a;
-  --color-primary: #864e5a;
+  --color-surface-bright: #FFFDD0;
+  --color-surface-tint: #2B2B2B;
+  --color-primary: #2B2B2B;
   --color-on-primary: #ffffff;
   --color-primary-container: #ffb7c5;
-  --color-on-primary-container: #7b4551;
+  --color-on-primary-container: #2B2B2B;
   --color-inverse-primary: #fbb3c1;
   --color-primary-fixed: #ffd9df;
   --color-primary-fixed-dim: #fbb3c1;
-  --color-on-primary-fixed: #360c19;
-  --color-on-primary-fixed-variant: #6b3743;
+  --color-on-primary-fixed: #2B2B2B;
+  --color-on-primary-fixed-variant: #2B2B2B;
   --color-secondary: #60603e;
   --color-on-secondary: #ffffff;
   --color-secondary-container: #e6e5b9;
@@ -62,18 +62,27 @@
   --color-on-error: #ffffff;
   --color-error-container: #ffdad6;
   --color-on-error-container: #93000a;
-  --color-background: #fcf9f8;
-  --color-on-background: #1b1c1c;
+  --color-background: #FFFDD0;
+  --color-on-background: #2B2B2B;
 
+  --font-heading: "Nunito Sans", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-label-md: "Nunito Sans", sans-serif;
   --font-headline-lg: "Nunito Sans", sans-serif;
-  --font-data-mono: "Plus Jakarta Sans", monospace;
+  --font-data-mono: "Plus Jakarta Sans", sans-serif;
   --font-display-lg: "Nunito Sans", sans-serif;
   --font-body-lg: "Plus Jakarta Sans", sans-serif;
   --font-label-sm: "Nunito Sans", sans-serif;
   --font-body-md: "Plus Jakarta Sans", sans-serif;
   --font-headline-lg-mobile: "Nunito Sans", sans-serif;
   --font-headline-md: "Nunito Sans", sans-serif;
+
+  --radius-2xl: 16px;
+  --radius-3xl: 32px;
+  --radius-card: 32px;
+  --radius-button: 16px;
+
+  --shadow-squishy: 0 8px 0 0 #2B2B2B;
   
   --spacing-unit: 4px;
   --spacing-gutter: 1.5rem;
@@ -120,6 +129,15 @@
   --text-headline-md--font-weight: 700;
 }
 
+@utility shadow-squishy {
+  box-shadow: 0 8px 0 0 #2B2B2B;
+  transition: all 0.15s ease-in-out;
+  &:active {
+    transform: translateY(4px);
+    box-shadow: none;
+  }
+}
+
 @layer base {
   body {
     -webkit-tap-highlight-color: transparent;
@@ -133,3 +151,4 @@
     padding-top: env(safe-area-inset-top, 0px);
   }
 }
+

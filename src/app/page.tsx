@@ -144,7 +144,7 @@ export default function LandingPage() {
           <div className="relative w-[85%] sm:w-[320px] aspect-[9/19] rounded-[3rem] overflow-hidden bg-black z-30 shadow-[0_40px_80px_rgba(0,0,0,0.25)] border-[12px] border-surface-variant/30 md:rotate-3 origin-bottom transition-all hover:rotate-0 hover:scale-105 duration-500 ring-1 ring-white/10">
             {/* Dynamic Island */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[30%] h-7 rounded-full bg-black z-40 shadow-inner"></div>
-            <Image src="/hero-mockup-mobile.png" alt="Meowney no iPhone" fill className="object-cover object-top" priority />
+            <Image src="/hero-mockup-mobile.png" alt="Meowney no iPhone" fill sizes="(max-width: 768px) 100vw, 300px" className="object-cover object-top" priority />
             {/* Glossy Reflection overlay */}
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-50"></div>
           </div>
@@ -153,7 +153,7 @@ export default function LandingPage() {
           <div className="hidden md:block relative w-[85%] sm:w-[320px] aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-black z-20 shadow-[0_30px_60px_rgba(0,0,0,0.2)] border-[8px] border-surface-variant/20 md:-rotate-3 origin-bottom transition-all hover:rotate-0 hover:scale-105 duration-500 md:-ml-20 lg:-ml-12 mt-[-40px] md:mt-16">
             {/* Camera Hole */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-black z-40 shadow-inner"></div>
-            <Image src="/hero-mockup-mobile.png" alt="Meowney no Android" fill className="object-cover object-top" priority />
+            <Image src="/hero-mockup-mobile.png" alt="Meowney no Android" fill sizes="(max-width: 768px) 100vw, 300px" className="object-cover object-top" priority />
             {/* Glossy Reflection overlay */}
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-50"></div>
           </div>
@@ -187,7 +187,7 @@ export default function LandingPage() {
         >
           <div className="flex-1 order-2 md:order-1 relative flex justify-center w-full">
             <div className="relative w-[80%] sm:w-[280px] aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-black shadow-2xl border-[8px] border-surface-variant/30">
-              <Image src="/add-mockup.png" alt="Adicionar Gasto" fill className="object-cover" />
+              <Image src="/add-mockup.png" alt="Adicionar Gasto" fill sizes="(max-width: 768px) 100vw, 300px" className="object-cover" />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-mint-fresh text-on-tertiary-container px-6 py-3 rounded-2xl shadow-xl font-bold flex items-center gap-2 rotate-[-5deg]">
               <span className="material-symbols-outlined">bolt</span>
@@ -213,7 +213,7 @@ export default function LandingPage() {
           </div>
           <div className="flex-1 relative flex justify-center w-full">
             <div className="relative w-[80%] sm:w-[280px] aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-black shadow-2xl border-[8px] border-surface-variant/30">
-              <Image src="/goals-mockup.png" alt="Cat Stashes" fill className="object-cover" />
+              <Image src="/goals-mockup.png" alt="Cat Stashes" fill sizes="(max-width: 768px) 100vw, 300px" className="object-cover" />
             </div>
           </div>
         </motion.div>
@@ -225,7 +225,7 @@ export default function LandingPage() {
         >
           <div className="flex-1 order-2 md:order-1 relative flex justify-center w-full">
             <div className="relative w-[80%] sm:w-[280px] aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-black shadow-2xl border-[8px] border-surface-variant/30">
-              <Image src="/profile-mockup.png" alt="Perfil Privado" fill className="object-cover" />
+              <Image src="/profile-mockup.png" alt="Perfil Privado" fill sizes="(max-width: 768px) 100vw, 300px" className="object-cover" />
             </div>
           </div>
           <div className="flex-1 order-1 md:order-2 text-center md:text-left">
