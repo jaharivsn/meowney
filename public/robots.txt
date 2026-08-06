@@ -1,0 +1,18 @@
+# robots.txt for Meowney
+User-agent: *
+Allow: /
+
+# AI Crawlers explicitly allowed for AEO / GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://meowneyapp.netlify.app/sitemap.xml

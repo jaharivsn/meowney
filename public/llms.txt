@@ -1,0 +1,18 @@
+# Meowney — Kawaii Financial Manager
+
+> Meowney é um gerenciador financeiro felino kawaii, 100% privado e local-first. Permite controlar gastos do tutor e do pet, criar potes de economia (Cat-Stashes), acompanhar metas e organizar finanças diretamente no navegador.
+
+## Páginas Principais
+
+- [/](https://meowneyapp.netlify.app/): Landing Page oficial com apresentação do produto, prova social, planos e FAQ.
+- [/app](https://meowneyapp.netlify.app/app): Dashboard interativo com saldo felino, resumo de receitas/despesas e acesso rápido.
+- [/app/expenses](https://meowneyapp.netlify.app/app/expenses): Extrato completo de transações com filtros por categoria.
+- [/app/add](https://meowneyapp.netlify.app/app/add): Formulário tátil rápido para adicionar despesas e rendas.
+- [/app/goals](https://meowneyapp.netlify.app/app/goals): Gestão de potes de economia (Cat-Stash Goals) com barras de progresso.
+- [/app/profile](https://meowneyapp.netlify.app/app/profile): Perfil do tutor, gerenciador de categorias personalizadas e FAQ de privacidade.
+
+## Recursos Chave
+
+- **Local-First & Privado**: Zero envio de dados para servidores externos; armazenamento via LocalStorage.
+- **Estética Kawaii Premium**: Cores oficiais Sakura Pink, Cream Milk, Mint Fresh e Soft Charcoal.
+- **PWA Ready**: Funciona como Web App instalado em dispositivos móveis e desktop.

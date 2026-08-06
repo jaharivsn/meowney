@@ -1,58 +1,68 @@
-# BRIEFING — 2026-07-30T18:00:40-03:00
+# BRIEFING — 2026-08-05T15:37:39Z
 
 ## Mission
-Implement Requirements R2 (Lean Profile Page with static FAQ, Replay Tutorial button, and Support mailto button) and R3 (Visual Step-by-step Onboarding Tutorial Modal using Framer Motion).
+Refactor WebApp finance routes (`/app`, `/app/add`, `/app/expenses`, `/app/goals`, `/app/profile`), fix calculation defects, replace window.prompt balance edit with BalanceEditModal, enable dynamic categories, and enforce 100% Stitch Design System styling.
 
 ## 🔒 My Identity
-- Archetype: implementer / qa / specialist
+- Archetype: WebApp Worker
 - Roles: implementer, qa, specialist
 - Working directory: d:\creative-dev\projetos\pessoal\cases\meowney\.agents\worker_m3
-- Original parent: c2e4a275-3d9e-4eac-9bc2-96950c08715c
-- Milestone: Requirements R2 and R3 Implementation
+- Original parent: 1d0ba1f0-9d7a-4934-a24a-efdc553e61e5
+- Milestone: M3 (WebApp Financeiro & Mobbin iOS Benchmark)
 
 ## 🔒 Key Constraints
-- Minimal change principle.
-- No dummy/facade implementations or hardcoded test hacks.
-- Framer Motion transitions (`AnimatePresence`, `motion.div`).
-- 4 onboarding steps: Welcome, Log expenses, Cat-stash goals, Ready to start.
-- Wire state to `useMeowneyStore`: `hasSeenTutorial`, `setHasSeenTutorial`.
-- Allow manual re-trigger of TutorialModal (e.g., via Profile page).
-- Profile page must be lean: avatar + header, static FAQ accordion/cards, replay tutorial button, support button (`mailto:jahari.wav@gmail.com`). No notification/theme toggles.
-- Zero build errors on `npm run build`.
+- Fix transaction calculations in `/app` (filter `e.type === 'expense'`).
+- Format income as `+R$` and expenses as `-R$` in `/app/expenses`.
+- Load categories dynamically from Zustand store in `/app/expenses`.
+- Replace `window.prompt` balance editing in `/app` with accessible inline modal `BalanceEditModal`.
+- Enforce 32px card radii (`rounded-3xl`), 16px button radii (`rounded-2xl`), Stitch colors, and squishy shadows across all `/app/*` views.
+- Pass `npm run build` and `npx vitest run` with 0 errors.
 
 ## Current Parent
-- Conversation ID: c2e4a275-3d9e-4eac-9bc2-96950c08715c
-- Updated: 2026-07-30T18:00:40-03:00
+- Conversation ID: 1d0ba1f0-9d7a-4934-a24a-efdc553e61e5
+- Updated: 2026-08-05T15:37:39Z
 
 ## Task Summary
-- **What to build**: Onboarding Tutorial Modal component + Global layout integration + Lean Profile Page.
-- **Success criteria**: Clean visual tutorial modal with Framer Motion, store integration, auto-open on first visit, manual replay from profile, lean profile with FAQ and support link, 0 build errors.
+- **What to build**: WebApp Financeiro & Mobbin iOS Benchmark refactoring across `/app/*` routes.
+- **Success criteria**: All calculation bugs fixed, inline modal for balance edit, dynamic categories, full Stitch design compliance (`rounded-3xl` cards, `rounded-2xl` buttons, squishy shadows), 100% build & test pass.
+- **Interface contracts**: `PROJECT.md`
+- **Code layout**: `src/app/app/*`, `src/components/*`, `src/store/*`
 
 ## Key Decisions Made
-- Created `src/components/TutorialModal.tsx` using Framer Motion (`AnimatePresence`, `motion.div`) with custom direction slide animations.
-- Wired modal visibility to `useMeowneyStore` (`hasSeenTutorial`, `setHasSeenTutorial`) with support for optional `isOpen`/`onClose` props.
-- Added `<TutorialModal />` to `src/app/layout.tsx` so first-time visitors automatically get the onboarding modal.
-- Rewrote `src/app/profile/page.tsx` into a lean profile layout: header ("Cat Parent", "Membro Meowney"), "Rever Tutorial" button, "Falar com Suporte" mailto link (`mailto:jahari.wav@gmail.com`), and static FAQ accordion section. Removed all notification toggles, theme selectors, and unnecessary menus.
+- Created `BalanceEditModal` component with numeric input, presets, ARIA dialog accessibility, and squishy action button.
+- Filtered `e.type === 'expense'` in `/app/page.tsx` for `monthlyExpenses` and `dailySpend` calculations.
+- Formatted transactions with `+R$` for income and `-R$` for expenses in `/app/expenses/page.tsx`.
+- Dynamically subscribed category filter pills in `/app/expenses/page.tsx` to Zustand store categories.
+- Enforced 32px card radii (`rounded-3xl`) and 16px button radii (`rounded-2xl`) with squishy shadows across all `/app/*` views (`/app`, `/app/add`, `/app/expenses`, `/app/goals`, `/app/profile`).
 
 ## Artifact Index
-- `.agents/worker_m3/progress.md` — Progress heartbeat
+- `.agents/worker_m3/DISPATCH.md` — Task instructions
+- `.agents/worker_m3/BRIEFING.md` — Persistent agent briefing
+- `.agents/worker_m3/progress.md` — Heartbeat and progress log
 - `.agents/worker_m3/handoff.md` — Final handoff report
-- `src/components/TutorialModal.tsx` — Onboarding modal component
-- `src/app/layout.tsx` — Root layout with global TutorialModal integration
-- `src/app/profile/page.tsx` — Lean profile page implementation
 
 ## Change Tracker
 - **Files modified**:
-  - `src/components/TutorialModal.tsx`: Created visual step-by-step onboarding tutorial modal.
-  - `src/app/layout.tsx`: Added TutorialModal integration.
-  - `src/app/profile/page.tsx`: Rewrote to lean profile design with static FAQ, tutorial replay button, and mailto support link.
-- **Build status**: In progress (`npm run build`)
+  - `src/components/BalanceEditModal.tsx` — Created accessible balance modal
+  - `src/app/app/page.tsx` — Fixed monthlyExpenses & dailySpend math, integrated BalanceEditModal, applied Stitch 32px/16px radii
+  - `src/app/app/expenses/page.tsx` — Added +R$/-R$ formatting, dynamic Zustand category loading, rounded-3xl cards
+  - `src/app/app/add/page.tsx` — Refactored transaction entry with Stitch rounded-3xl cards and rounded-2xl buttons
+  - `src/app/app/goals/page.tsx` — Refactored goals and goal modal containers to rounded-3xl and buttons to rounded-2xl with squishy shadows
+  - `src/app/app/profile/page.tsx` — Refactored user card, categories manager, and FAQ accordion to rounded-3xl/2xl
+  - `src/components/BottomNav.tsx` — Updated bottom navigation bar with rounded-3xl/2xl Stitch styling
+  - `src/lib/__tests__/m3-webapp.test.ts` — Added unit tests for M3 calculation fixes and custom categories
+- **Build status**: `npm run build` passed (0 errors)
 - **Pending issues**: None
 
 ## Quality Status
-- **Build/test result**: In progress
-- **Lint status**: Passing
-- **Tests added/modified**: Verified via `npm run build` TypeScript compilation.
+- **Build/test result**: PASS (12/12 Vitest unit tests passed, 3/3 Playwright E2E tests passed)
+- **Lint status**: Clean
+- **Tests added/modified**: `src/lib/__tests__/m3-webapp.test.ts` added (3 tests covering math, custom categories, balance set)
 
 ## Loaded Skills
-- None explicitly assigned
+- **Source**: C:\Users\jahar\.gemini\config\skills\frontend-supremo\SKILL.md
+  - **Local copy**: d:\creative-dev\projetos\pessoal\cases\meowney\.agents\worker_m3\frontend-supremo.md
+  - **Core methodology**: Production-grade UI, Stitch Design System alignment, accessible, responsive, anti-slop design.
+- **Source**: C:\Users\jahar\.gemini\config\skills\backend-supremo\SKILL.md
+  - **Local copy**: d:\creative-dev\projetos\pessoal\cases\meowney\.agents\worker_m3\backend-supremo.md
+  - **Core methodology**: Robust data flow, Zustand state handling, strict validation, zero spaghetti code.

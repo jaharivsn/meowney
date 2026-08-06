@@ -1,11 +1,14 @@
-# Progress Log - Worker M3
+# Progress Log — worker_m3
 
-Last visited: 2026-07-30T18:00:45-03:00
+Last visited: 2026-08-05T15:37:45Z
 
-- [x] Initialized ORIGINAL_REQUEST.md, progress.md, and BRIEFING.md
-- [x] Inspect existing codebase, store state (`useMeowneyStore`), `src/app/layout.tsx`, `src/app/profile/page.tsx`, and existing components.
-- [x] Create `src/components/TutorialModal.tsx` with Framer Motion animations & store integration.
-- [x] Integrate `TutorialModal` into global layout (`src/app/layout.tsx`).
-- [x] Update `src/app/profile/page.tsx` to lean profile page (avatar, static FAQ, replay tutorial button, mailto support button, zero settings toggles).
-- [x] Run `npm run build` and resolve any errors (0 errors, build successful).
-- [x] Write `handoff.md` and notify parent.
+## Status
+- [x] Received dispatch instructions and initialized worker BRIEFING
+- [x] Loaded skills (`frontend-supremo`, `backend-supremo`) locally
+- [x] Inspect existing WebApp routes and components
+- [x] Fix transaction calculation defect in `/app` (`monthlyExpenses`, `dailySpend` filter `e.type === 'expense'`)
+- [x] Implement `BalanceEditModal` and integrate into `/app/page.tsx`
+- [x] Fix formatting (`+R$` / `-R$`) and dynamic category loading in `/app/expenses/page.tsx`
+- [x] Enforce Stitch styling (`rounded-3xl` cards, `rounded-2xl` buttons, squishy shadows) across all `/app/*` views (`/app`, `/app/add`, `/app/expenses`, `/app/goals`, `/app/profile`)
+- [x] Verify build (`npm run build`) and test suite (`npx vitest run` & `npx playwright test`)
+- [x] Write handoff report (`handoff.md`) and notify parent agent

@@ -29,8 +29,8 @@
 ## Milestones
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| 1 | M1: Design System Foundation | `src/app/globals.css`, Tailwind theme, Stitch tokens, squishy shadows, radii classes | none | PLANNED |
-| 2 | M2: Landing Page & SaaS Benchmarks | `src/components/landing/*`, `src/app/page.tsx`, Lapa.ninja features, accessibility, assets | M1 | PLANNED |
+| 1 | M1: Design System Foundation | `src/app/globals.css`, Tailwind theme, Stitch tokens, squishy shadows, radii classes | none | DONE |
+| 2 | M2: Landing Page & SaaS Benchmarks | `src/components/landing/*`, `src/app/page.tsx`, Lapa.ninja features, accessibility, assets | M1 | DONE |
 | 3 | M3: WebApp Financeiro & Mobbin iOS | `src/app/app/*`, state math fixes, balance modal, dynamic categories, Mobbin UX | M1 | PLANNED |
 | 4 | M4: Dual-Browser Preview & E2E Validation | `public/dual-preview.html`, `npm run build`, Vitest, Playwright tests, zero AI-slop check | M2, M3 | PLANNED |
 
