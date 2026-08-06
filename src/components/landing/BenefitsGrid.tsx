@@ -39,8 +39,8 @@ export default function BenefitsGrid() {
           {benefits.map((b, index) => (
             <motion.div 
               key={index}
-              initial={mounted ? "hidden" : false}
-              whileInView={mounted ? "visible" : false}
+              initial={mounted ? "hidden" : undefined}
+              whileInView={mounted ? "visible" : undefined}
               viewport={{ once: true }}
               variants={fadeUp} 
               className="bg-surface-container-lowest p-8 rounded-3xl border border-surface-variant/40 hover:border-sakura-pink/50 transition-colors shadow-xs"

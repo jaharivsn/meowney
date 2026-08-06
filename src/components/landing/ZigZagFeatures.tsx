@@ -25,8 +25,8 @@ export default function ZigZagFeatures() {
 
       {/* Step 1 */}
       <motion.div 
-        initial={mounted ? "hidden" : false} 
-        whileInView={mounted ? "visible" : false} 
+        initial={mounted ? "hidden" : undefined} 
+        whileInView={mounted ? "visible" : undefined} 
         viewport={{ once: true, margin: "-100px" }} 
         variants={fadeUp}
         className="flex flex-col md:flex-row items-center gap-12"
@@ -57,8 +57,8 @@ export default function ZigZagFeatures() {
 
       {/* Step 2 */}
       <motion.div 
-        initial={mounted ? "hidden" : false} 
-        whileInView={mounted ? "visible" : false} 
+        initial={mounted ? "hidden" : undefined} 
+        whileInView={mounted ? "visible" : undefined} 
         viewport={{ once: true, margin: "-100px" }} 
         variants={fadeUp}
         className="flex flex-col md:flex-row items-center gap-12"
@@ -85,8 +85,8 @@ export default function ZigZagFeatures() {
 
       {/* Step 3 */}
       <motion.div 
-        initial={mounted ? "hidden" : false} 
-        whileInView={mounted ? "visible" : false} 
+        initial={mounted ? "hidden" : undefined} 
+        whileInView={mounted ? "visible" : undefined} 
         viewport={{ once: true, margin: "-100px" }} 
         variants={fadeUp}
         className="flex flex-col md:flex-row items-center gap-12"

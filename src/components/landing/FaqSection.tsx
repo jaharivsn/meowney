@@ -48,8 +48,8 @@ export default function FaqSection() {
   return (
     <section id="faq" className="pt-16 pb-24 md:pt-20 md:pb-32 px-6 max-w-3xl mx-auto w-full z-10 relative scroll-mt-16">
       <motion.h2 
-        initial={mounted ? "hidden" : false}
-        whileInView={mounted ? "visible" : false}
+        initial={mounted ? "hidden" : undefined}
+        whileInView={mounted ? "visible" : undefined}
         viewport={{ once: true }}
         variants={fadeUp}
         className="font-title-lg text-3xl md:text-4xl font-bold text-center mb-12 text-on-surface"
@@ -73,8 +73,8 @@ function FaqItem({ item, motionReady }: { item: FaqData; motionReady: boolean })
 
   return (
     <motion.div 
-      initial={motionReady ? "hidden" : false}
-      whileInView={motionReady ? "visible" : false}
+      initial={motionReady ? "hidden" : undefined}
+      whileInView={motionReady ? "visible" : undefined}
       viewport={{ once: true }}
       variants={fadeUp} 
       className="border border-sakura-pink/30 rounded-3xl overflow-hidden bg-surface-container-lowest hover:border-sakura-pink/60 hover:shadow-md transition-all group"

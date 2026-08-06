@@ -22,8 +22,8 @@ export default function HeroSection() {
       <div className="flex flex-col items-center z-10">
         {/* Trust Micro-Badge (Lapa.ninja Benchmark) */}
         <motion.div
-          initial={mounted ? "hidden" : false}
-          animate={mounted ? "visible" : false}
+          initial={mounted ? "hidden" : undefined}
+          animate={mounted ? "visible" : undefined}
           variants={fadeUp}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sakura-pink/20 text-primary text-sm font-bold mb-6 border border-sakura-pink/30 shadow-xs"
         >
@@ -33,8 +33,8 @@ export default function HeroSection() {
 
         {/* Main Headline */}
         <motion.h1 
-          initial={mounted ? "hidden" : false}
-          animate={mounted ? "visible" : false}
+          initial={mounted ? "hidden" : undefined}
+          animate={mounted ? "visible" : undefined}
           variants={fadeUp}
           className="font-title-lg text-5xl md:text-6xl lg:text-[72px] font-bold tracking-tight mb-6 text-on-surface leading-tight"
           style={{ textWrap: "balance" }}
@@ -44,8 +44,8 @@ export default function HeroSection() {
         
         {/* Subheadline */}
         <motion.p 
-          initial={mounted ? "hidden" : false}
-          animate={mounted ? "visible" : false}
+          initial={mounted ? "hidden" : undefined}
+          animate={mounted ? "visible" : undefined}
           variants={fadeUp}
           className="text-on-surface-variant text-lg md:text-xl max-w-2xl mb-10 leading-relaxed font-body-md"
           style={{ textWrap: "pretty" }}
@@ -55,8 +55,8 @@ export default function HeroSection() {
         
         {/* Dual CTAs (Lapa.ninja Benchmark) */}
         <motion.div
-          initial={mounted ? "hidden" : false}
-          animate={mounted ? "visible" : false}
+          initial={mounted ? "hidden" : undefined}
+          animate={mounted ? "visible" : undefined}
           variants={fadeUp}
           className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
         >
@@ -81,8 +81,8 @@ export default function HeroSection() {
       {/* Multi-Device Mockup Frames */}
       <motion.div 
         className="relative w-full max-w-4xl mt-8 flex flex-col md:flex-row justify-center items-center gap-12 md:gap-8 perspective-1000"
-        initial={mounted ? { opacity: 0, y: 100 } : false}
-        animate={mounted ? { opacity: 1, y: 0 } : false}
+        initial={mounted ? { opacity: 0, y: 100 } : undefined}
+        animate={mounted ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
       >
         {/* Primary iPhone Frame (Mobile View) */}
