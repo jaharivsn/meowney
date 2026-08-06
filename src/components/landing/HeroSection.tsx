@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { useMounted } from "@/hooks/useMounted";
+import { CatPawAnimation } from "@/components/brand/CatPawAnimation";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -20,15 +21,18 @@ export default function HeroSection() {
   return (
     <section className="relative px-6 pt-32 pb-24 md:pt-40 md:pb-36 max-w-[1400px] mx-auto flex flex-col items-center text-center gap-12 overflow-hidden">
       <div className="flex flex-col items-center z-10">
-        {/* Trust Micro-Badge (Lapa.ninja Benchmark) */}
+        {/* Trust Micro-Badge & Paw Animation */}
         <motion.div
           initial={mounted ? "hidden" : undefined}
           animate={mounted ? "visible" : undefined}
           variants={fadeUp}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sakura-pink/20 text-primary text-sm font-bold mb-6 border border-sakura-pink/30 shadow-xs"
+          className="flex items-center gap-3 mb-6"
         >
-          <span className="material-symbols-outlined text-base text-sakura-pink" aria-hidden="true">pets</span>
-          <span>+2.400 tutores felizes</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sakura-pink/20 text-primary text-sm font-bold border border-sakura-pink/30 shadow-xs">
+            <span className="material-symbols-outlined text-base text-sakura-pink animate-paw-pulse" aria-hidden="true">pets</span>
+            <span>+2.400 tutores felizes</span>
+          </div>
+          <CatPawAnimation count={3} size={16} className="hidden sm:inline-flex" />
         </motion.div>
 
         {/* Main Headline */}
@@ -47,11 +51,27 @@ export default function HeroSection() {
           initial={mounted ? "hidden" : undefined}
           animate={mounted ? "visible" : undefined}
           variants={fadeUp}
-          className="text-on-surface-variant text-lg md:text-xl max-w-2xl mb-10 leading-relaxed font-body-md"
+          className="text-on-surface-variant text-lg md:text-xl max-w-2xl mb-6 leading-relaxed font-body-md"
           style={{ textWrap: "pretty" }}
         >
           Controle os gastos do seu pet (e os seus também) sem perder a fofura. O Meowney organiza suas finanças de forma 100% local, no seu navegador.
         </motion.p>
+        
+        {/* Quick Answer Block (GEO/AEO) */}
+        <motion.div
+          initial={mounted ? "hidden" : undefined}
+          animate={mounted ? "visible" : undefined}
+          variants={fadeUp}
+          className="bg-surface-variant/30 border border-sakura-pink/30 rounded-2xl p-4 max-w-xl mb-8 text-left text-sm text-on-surface-variant shadow-xs"
+        >
+          <div className="font-bold text-on-surface flex items-center gap-1.5 mb-1 text-xs uppercase tracking-wider text-primary">
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">bolt</span>
+            <span>Resposta Rápida</span>
+          </div>
+          <p>
+            O <strong>Meowney</strong> é um aplicativo gratuito e 100% offline-first de controle financeiro pessoal e pet. Seus dados ficam salvos exclusivamente no seu navegador com total privacidade.
+          </p>
+        </motion.div>
         
         {/* Dual CTAs (Lapa.ninja Benchmark) */}
         <motion.div
@@ -92,6 +112,7 @@ export default function HeroSection() {
             src="/hero-mockup-dashboard.png" 
             alt="Meowney no iPhone" 
             fill 
+            unoptimized
             sizes="(max-width: 768px) 100vw, 320px" 
             className="object-cover object-top" 
             priority 
@@ -106,6 +127,7 @@ export default function HeroSection() {
             src="/hero-mockup-desktop.png" 
             alt="Meowney no Desktop" 
             fill 
+            unoptimized
             sizes="(max-width: 768px) 100vw, 320px" 
             className="object-cover object-top" 
             priority 

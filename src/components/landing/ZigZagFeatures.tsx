@@ -37,6 +37,7 @@ export default function ZigZagFeatures() {
               src="/add-mockup.png" 
               alt="Adicionar Gasto no Meowney" 
               fill 
+              unoptimized
               sizes="(max-width: 768px) 100vw, 280px" 
               className="object-cover" 
             />
@@ -76,6 +77,7 @@ export default function ZigZagFeatures() {
               src="/goals-mockup.png" 
               alt="Cat Stashes no Meowney" 
               fill 
+              unoptimized
               sizes="(max-width: 768px) 100vw, 280px" 
               className="object-cover" 
             />
@@ -97,6 +99,7 @@ export default function ZigZagFeatures() {
               src="/profile-mockup.png" 
               alt="Perfil Privado no Meowney" 
               fill 
+              unoptimized
               sizes="(max-width: 768px) 100vw, 280px" 
               className="object-cover" 
             />

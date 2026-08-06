@@ -15,7 +15,7 @@ export const DEFAULT_STATE: MeowneyState = {
     { id: 'play', label: 'Lazer', icon: 'sports_esports', type: 'expense' },
     { id: 'home', label: 'Casa', icon: 'home', type: 'expense' },
   ],
-  hasSeenTutorial: false,
+  hasSeenTutorial: true,
 };
 
 export type ExpenseInput = Omit<Expense, 'id'> & { id?: string };

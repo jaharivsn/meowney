@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { BalanceEditModal } from "@/components/BalanceEditModal";
+import { CatPawAnimation } from "@/components/brand/CatPawAnimation";
 import { useMeowneyStore, useHydratedStore, DEFAULT_STATE } from "@/lib/store";
 
 function getCategoryIcon(category: string): string {
@@ -93,7 +94,7 @@ export default function Dashboard() {
   const dailySpend = last7Days.map((day) => {
     return expenses
       .filter((e) => {
-        if (e.type !== 'expense') return false;
+        if (!e.date || e.type !== 'expense') return false;
         const ed = new Date(e.date);
         return ed.toDateString() === day.toDateString();
       })
@@ -149,23 +150,26 @@ export default function Dashboard() {
                 {balanceInt}
                 <span className="text-headline-md font-headline-md opacity-60">,{balanceDec}</span>
               </h1>
-              <div className="flex items-center gap-2 mt-4">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-mint-fresh flex items-center justify-center ring-2 ring-white">
-                    <span className="material-symbols-outlined text-[18px] text-tertiary">
-                      trending_up
-                    </span>
+              <div className="flex items-center justify-between mt-4">
+                <div className="flex items-center gap-2">
+                  <div className="flex -space-x-2">
+                    <div className="w-8 h-8 rounded-full bg-mint-fresh flex items-center justify-center ring-2 ring-white">
+                      <span className="material-symbols-outlined text-[18px] text-tertiary">
+                        trending_up
+                      </span>
+                    </div>
                   </div>
+                  <p className="font-label-sm text-label-sm text-tertiary font-medium">
+                    Com base em suas transações reais 🐾
+                  </p>
                 </div>
-                <p className="font-label-sm text-label-sm text-tertiary font-medium">
-                  Com base em suas transações reais 🐾
-                </p>
+                <CatPawAnimation count={3} size={18} className="hidden sm:inline-flex opacity-80" />
               </div>
             </div>
             {/* Decorative Paw Background */}
             <div className="absolute -right-4 -bottom-4 opacity-10 rotate-12 pointer-events-none">
               <span
-                className="material-symbols-outlined text-[120px] text-primary"
+                className="material-symbols-outlined text-[120px] text-primary animate-tail-wiggle"
                 style={{ fontVariationSettings: "'FILL' 1" }}
               >
                 pets
@@ -173,15 +177,24 @@ export default function Dashboard() {
             </div>
           </section>
 
-          {/* Quick Stats Grid */}
+          {/* Quick Stats Grid - Interactive Cards */}
           <section className="grid grid-cols-2 gap-4">
-            <div className="bg-cream-milk p-5 rounded-3xl shadow-sm border border-sakura-pink/20 flex flex-col gap-2">
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary text-[20px]">
-                  shopping_basket
-                </span>
-                <span className="font-label-sm text-label-sm text-on-surface-variant font-bold">
-                  Gastos (Mês)
+            <Link
+              href="/app/expenses"
+              className="bg-cream-milk p-5 rounded-3xl shadow-sm border border-sakura-pink/20 flex flex-col gap-2 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all group focus-visible:ring-2 focus-visible:ring-primary outline-none"
+              aria-label="Ver extrato completo de Gastos do mês"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-primary text-[20px] group-hover:rotate-12 transition-transform">
+                    shopping_basket
+                  </span>
+                  <span className="font-label-sm text-label-sm text-on-surface-variant font-bold group-hover:text-primary transition-colors">
+                    Gastos (Mês)
+                  </span>
+                </div>
+                <span className="material-symbols-outlined text-xs text-primary/60 group-hover:translate-x-1 transition-transform">
+                  arrow_forward
                 </span>
               </div>
               <p className="font-data-mono text-data-mono text-soft-charcoal">
@@ -193,14 +206,24 @@ export default function Dashboard() {
                   style={{ width: mounted ? `${Math.min(100, (monthlyExpenses / (balance || 1)) * 100)}%` : "0%" }}
                 ></div>
               </div>
-            </div>
-            <div className="bg-cream-milk p-5 rounded-3xl shadow-sm border border-sakura-pink/20 flex flex-col gap-2">
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary text-[20px]">
-                  savings
-                </span>
-                <span className="font-label-sm text-label-sm text-on-surface-variant font-bold">
-                  Cat-Stashes
+            </Link>
+
+            <Link
+              href="/app/goals"
+              className="bg-cream-milk p-5 rounded-3xl shadow-sm border border-sakura-pink/20 flex flex-col gap-2 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all group focus-visible:ring-2 focus-visible:ring-primary outline-none"
+              aria-label="Ver Metas de economia (Cat-Stashes)"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-primary text-[20px] group-hover:rotate-12 transition-transform">
+                    savings
+                  </span>
+                  <span className="font-label-sm text-label-sm text-on-surface-variant font-bold group-hover:text-primary transition-colors">
+                    Cat-Stashes
+                  </span>
+                </div>
+                <span className="material-symbols-outlined text-xs text-primary/60 group-hover:translate-x-1 transition-transform">
+                  arrow_forward
                 </span>
               </div>
               <p className="font-data-mono text-data-mono text-soft-charcoal">
@@ -220,7 +243,7 @@ export default function Dashboard() {
                   <div className="w-2.5 h-2.5 rounded-full bg-surface-variant"></div>
                 )}
               </div>
-            </div>
+            </Link>
           </section>
 
           {/* Spending Trend Chart */}

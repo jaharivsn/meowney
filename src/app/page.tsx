@@ -49,16 +49,15 @@ export default function LandingPage() {
     ]
   };
 
-  const productSchema = {
+  const softwareAppSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "SoftwareApplication",
     "name": "Meowney",
-    "image": "https://meowney.vercel.app/og-image.png",
+    "url": "https://meowneyapp.netlify.app",
+    "image": "https://meowneyapp.netlify.app/opengraph-image.png",
     "description": "Aplicativo 100% privado e local para controle financeiro e gestão de gastos com pets.",
-    "brand": {
-      "@type": "Brand",
-      "name": "Meowney"
-    },
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
     "offers": {
       "@type": "Offer",
       "priceCurrency": "BRL",
@@ -79,9 +78,9 @@ export default function LandingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} 
       />
       <Script 
-        id="product-schema" 
+        id="software-app-schema" 
         type="application/ld+json" 
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }} 
       />
       
       <Navbar />

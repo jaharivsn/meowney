@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { MeowneyLogo } from "../brand/MeowneyLogo";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,10 +20,9 @@ export default function Navbar() {
         {/* Brand Logo */}
         <Link 
           href="/" 
-          className="flex items-center gap-2 font-display-lg text-2xl font-bold text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-lg"
+          className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-lg hover:opacity-90 active:scale-95 transition-all"
         >
-          <span className="material-symbols-outlined text-[28px] text-sakura-pink" aria-hidden="true">pets</span>
-          <span>Meowney</span>
+          <MeowneyLogo size="sm" variant="default" showWordmark={true} />
         </Link>
 
         {/* Desktop Anchor Links */}
