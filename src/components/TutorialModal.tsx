@@ -87,12 +87,23 @@ export function TutorialModal({ isOpen: propsIsOpen, onClose }: TutorialModalPro
 
   const [currentStep, setCurrentStep] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [mounted, setMounted] = useState(false);
 
-  // If propsIsOpen is provided, use it. Otherwise, rely on store state after hydration.
-  const isVisible =
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Check standalone localStorage flag as well
+  const localHasSeen = typeof window !== "undefined" && window.localStorage.getItem("hasSeenTutorial") === "true";
+
+  // If propsIsOpen is provided, use it. Otherwise, rely on store state after hydration or mount.
+  // We use isHydrated to be sure we have the correct state, but if it takes too long, 
+  // and we are on the client (mounted), we trust the current store value.
+  const isVisible = mounted && (
     typeof propsIsOpen === "boolean"
       ? propsIsOpen
-      : isHydrated && !storeHasSeenTutorial;
+      : (isHydrated || mounted) && !storeHasSeenTutorial && !localHasSeen
+  );
 
   useEffect(() => {
     if (isVisible) {
@@ -133,6 +144,9 @@ export function TutorialModal({ isOpen: propsIsOpen, onClose }: TutorialModalPro
 
   const handleFinish = () => {
     setHasSeenTutorial(true);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("hasSeenTutorial", "true");
+    }
     if (onClose) {
       onClose();
     }

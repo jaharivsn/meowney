@@ -44,6 +44,7 @@ test.describe('Transactions Flow (Teste Supremo AAA)', () => {
     await page.getByTestId('amount-input').fill('50');
     await page.getByTestId('note-input').fill('Ração de teste');
     await page.getByTestId('submit-btn').click();
+    await expect(page).toHaveURL(/\/app\/expenses/);
 
     // 9. Assert: Final balance is 450
     await page.goto('/app');

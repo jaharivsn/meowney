@@ -31,7 +31,7 @@ test('generate faithful mockup', async ({ page }) => {
 
   // Hero Mobile
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.screenshot({ path: 'public/hero-mockup-mobile.png' });
+  await page.screenshot({ path: 'public/hero-mockup-dashboard.png' });
 
   // Add Screen
   await page.goto('/app/add');

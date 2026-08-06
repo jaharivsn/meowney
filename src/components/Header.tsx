@@ -7,9 +7,9 @@ interface HeaderProps {
 export function Header({ title }: HeaderProps) {
   return (
     <header className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.02)]">
-      <div className="h-16 px-margin-mobile flex items-center justify-between">
+      <div className="h-16 px-margin-mobile flex items-center justify-between max-w-7xl mx-auto">
         <div className="flex items-center gap-unit">
-          <div className="relative w-8 h-8">
+          <div className="relative w-8 h-8 hover:rotate-12 transition-transform">
             <Image
               alt="Meowney Logo"
               className="object-contain"
@@ -21,7 +21,7 @@ export function Header({ title }: HeaderProps) {
             {title}
           </span>
         </div>
-        <div className="relative w-9 h-9 rounded-full overflow-hidden shadow-sm ring-2 ring-sakura-pink/30">
+        <div className="relative w-9 h-9 rounded-full overflow-hidden shadow-sm ring-2 ring-sakura-pink/30 hover:scale-105 transition-transform cursor-pointer">
           <Image
             alt="Profile"
             className="object-cover"

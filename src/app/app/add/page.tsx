@@ -62,18 +62,28 @@ export default function AddExpense() {
 
       <main className="relative pt-16 bg-background min-h-screen pb-32">
         <div className="flex justify-center pt-6 px-margin-mobile">
-          <div className="bg-surface-container flex rounded-full p-1 w-full max-w-sm">
+          <div className="bg-surface-container flex rounded-2xl p-1.5 w-full max-w-sm border border-sakura-pink/20 shadow-sm">
             <button
               data-testid="expense-tab"
+              type="button"
               onClick={() => setTransactionType('expense')}
-              className={`flex-1 py-2 rounded-full font-label-md transition-colors ${transactionType === 'expense' ? 'bg-sakura-pink text-primary shadow-sm' : 'text-on-surface-variant'}`}
+              className={`flex-1 py-2.5 rounded-2xl font-label-md transition-all font-bold ${
+                transactionType === 'expense'
+                  ? 'bg-sakura-pink text-primary shadow-sm'
+                  : 'text-on-surface-variant hover:bg-sakura-pink/20'
+              }`}
             >
               Gasto (-)
             </button>
             <button
               data-testid="income-tab"
+              type="button"
               onClick={() => setTransactionType('income')}
-              className={`flex-1 py-2 rounded-full font-label-md transition-colors ${transactionType === 'income' ? 'bg-mint-fresh text-tertiary shadow-sm' : 'text-on-surface-variant'}`}
+              className={`flex-1 py-2.5 rounded-2xl font-label-md transition-all font-bold ${
+                transactionType === 'income'
+                  ? 'bg-mint-fresh text-tertiary shadow-sm'
+                  : 'text-on-surface-variant hover:bg-sakura-pink/20'
+              }`}
             >
               Renda (+)
             </button>
@@ -83,7 +93,7 @@ export default function AddExpense() {
         <form onSubmit={handlePurchase} className="flex flex-col w-full px-margin-mobile gap-gutter pb-8">
           {/* Hero Amount Input */}
           <div className="relative z-10 flex flex-col items-center justify-center py-6 animate-in fade-in slide-in-from-top-4 duration-700">
-            <span className="font-label-md text-label-md text-primary/60 uppercase tracking-widest mb-2">
+            <span className="font-label-md text-label-md text-primary/60 uppercase tracking-widest mb-2 font-bold">
               Valor {transactionType === 'expense' ? 'Gasto' : 'Recebido'}
             </span>
             <div className="flex items-baseline gap-2 group">
@@ -107,10 +117,10 @@ export default function AddExpense() {
                 }}
               />
             </div>
-            <div className="h-1 w-12 bg-sakura-pink/30 rounded-full mt-2 group-focus-within:w-24 transition-all duration-500"></div>
+            <div className="h-1.5 w-12 bg-sakura-pink/40 rounded-full mt-2 group-focus-within:w-24 transition-all duration-500"></div>
 
             {errorMessage && (
-              <p className="text-error font-label-md text-label-md bg-error/10 px-4 py-1.5 rounded-full mt-4 animate-bounce">
+              <p className="text-error font-label-md text-label-md bg-error/10 px-4 py-2 rounded-2xl mt-4 animate-bounce">
                 {errorMessage}
               </p>
             )}
@@ -123,32 +133,32 @@ export default function AddExpense() {
                 type="button"
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`category-card flex flex-col items-center justify-center p-4 rounded-lg bg-cream-milk hover:scale-105 active:scale-95 transition-all shadow-sm border-2 ${
-                  selectedCategory === cat.id ? "ring-2 ring-primary" : "border-transparent"
+                className={`category-card flex flex-col items-center justify-center p-4 rounded-3xl bg-cream-milk hover:scale-105 active:scale-95 transition-all shadow-sm border-2 ${
+                  selectedCategory === cat.id ? "ring-2 ring-primary border-primary" : "border-sakura-pink/20"
                 }`}
               >
                 <div
-                  className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 bg-sakura-pink/20 text-primary`}
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center mb-2 bg-sakura-pink/20 text-primary"
                 >
                   <span className="material-symbols-outlined">{cat.icon}</span>
                 </div>
-                <span className="font-label-sm text-label-sm text-on-surface-variant">
+                <span className="font-label-sm text-label-sm text-on-surface-variant font-bold">
                   {cat.label}
                 </span>
               </button>
             ))}
           </div>
 
-          {/* Details Form */}
+          {/* Details Form Card Container */}
           <div className="relative z-10 flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-8 duration-500 delay-300">
             {/* Date/Time Picker */}
-            <div className="bg-surface-container-low p-4 rounded-lg flex items-center justify-between">
+            <div className="bg-cream-milk p-4 rounded-3xl border border-sakura-pink/20 flex items-center justify-between shadow-sm">
               <div className="flex items-center gap-3 w-full">
                 <span className="material-symbols-outlined text-primary">
                   calendar_today
                 </span>
                 <div className="flex-1">
-                  <label className="font-label-md text-label-md text-on-surface block mb-1">
+                  <label className="font-label-md text-label-md text-on-surface block mb-1 font-bold">
                     Data e Hora
                   </label>
                   <input
@@ -162,8 +172,8 @@ export default function AddExpense() {
             </div>
 
             {/* Note Input */}
-            <div className="bg-surface-container-low p-4 rounded-lg flex flex-col gap-2">
-              <label className="font-headline-md text-label-md text-primary flex items-center gap-2">
+            <div className="bg-cream-milk p-4 rounded-3xl border border-sakura-pink/20 flex flex-col gap-2 shadow-sm">
+              <label className="font-headline-md text-label-md text-primary flex items-center gap-2 font-bold">
                 <span className="material-symbols-outlined text-[18px]">
                   edit_note
                 </span>
@@ -184,7 +194,7 @@ export default function AddExpense() {
             <button
               data-testid="submit-btn"
               type="submit"
-              className="w-full bg-sakura-pink text-soft-charcoal py-5 rounded-full font-headline-md text-headline-md shadow-xl hover:shadow-sakura-pink/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="w-full bg-sakura-pink text-primary py-4 rounded-2xl font-headline-md text-headline-md hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               <span className="material-symbols-outlined group-hover:rotate-12 transition-transform">
                 pets

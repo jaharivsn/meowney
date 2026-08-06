@@ -56,7 +56,7 @@ export default function Profile() {
       <main className="relative pt-16 bg-background min-h-screen pb-32">
         <div className="flex flex-col w-full px-margin-mobile gap-6">
           {/* User Avatar & Header */}
-          <div className="relative overflow-hidden bg-cream-milk rounded-2xl p-8 flex flex-col items-center justify-center text-center shadow-sm mt-6 border border-sakura-pink/20">
+          <div className="relative overflow-hidden bg-cream-milk rounded-3xl p-8 flex flex-col items-center justify-center text-center shadow-sm mt-6 border border-sakura-pink/20">
             {/* Background Paw Watermark */}
             <div className="absolute -top-10 -right-10 opacity-10 text-primary rotate-12 pointer-events-none">
               <span className="material-symbols-outlined text-[140px]">pets</span>
@@ -81,7 +81,7 @@ export default function Profile() {
             <h1 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-5 font-bold">
               Cat Parent
             </h1>
-            <p className="font-body-md text-on-surface-variant opacity-75">
+            <p className="font-body-md text-on-surface-variant opacity-75 font-medium">
               Tutor Felino & Mestre do Orçamento
             </p>
           </div>
@@ -91,10 +91,10 @@ export default function Profile() {
             {/* Replay Tutorial Button */}
             <button
               onClick={() => setIsTutorialOpen(true)}
-              className="flex items-center justify-between w-full p-4 bg-surface-container-lowest hover:bg-cream-milk/60 border border-sakura-pink/20 rounded-2xl shadow-sm transition-all duration-200 group text-left"
+              className="flex items-center justify-between w-full p-4 bg-cream-milk hover:bg-white border border-sakura-pink/20 rounded-2xl shadow-sm transition-all duration-200 group text-left"
             >
               <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-xl bg-sakura-pink/20 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+                <div className="w-11 h-11 rounded-2xl bg-sakura-pink/20 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
                   <span className="material-symbols-outlined text-[24px]">
                     replay
                   </span>
@@ -116,10 +116,10 @@ export default function Profile() {
             {/* Support Button (Mailto link) */}
             <a
               href="mailto:jahari.wav@gmail.com"
-              className="flex items-center justify-between w-full p-4 bg-surface-container-lowest hover:bg-cream-milk/60 border border-sakura-pink/20 rounded-2xl shadow-sm transition-all duration-200 group text-left"
+              className="flex items-center justify-between w-full p-4 bg-cream-milk hover:bg-white border border-sakura-pink/20 rounded-2xl shadow-sm transition-all duration-200 group text-left"
             >
               <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-xl bg-mint-fresh/30 flex items-center justify-center text-tertiary group-hover:scale-105 transition-transform">
+                <div className="w-11 h-11 rounded-2xl bg-mint-fresh/30 flex items-center justify-center text-tertiary group-hover:scale-105 transition-transform">
                   <span className="material-symbols-outlined text-[24px]">
                     mail
                   </span>
@@ -140,7 +140,7 @@ export default function Profile() {
           </div>
 
           {/* Manage Categories Section */}
-          <div className="bg-surface-container-lowest rounded-2xl p-5 border border-sakura-pink/20 shadow-sm flex flex-col gap-4 mt-2">
+          <div className="bg-surface-container-lowest rounded-3xl p-6 border border-sakura-pink/20 shadow-sm flex flex-col gap-4 mt-2">
             <div className="flex items-center gap-2 border-b border-surface-variant/50 pb-3">
               <span className="material-symbols-outlined text-primary text-[24px]">
                 category
@@ -154,16 +154,16 @@ export default function Profile() {
             
             <div className="flex flex-col gap-3">
               {categories.map((cat) => (
-                <div key={cat.id} className="flex justify-between items-center bg-cream-milk p-3 rounded-lg border border-surface-variant/20">
+                <div key={cat.id} className="flex justify-between items-center bg-cream-milk p-3.5 rounded-2xl border border-sakura-pink/20">
                   <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-primary bg-sakura-pink/20 p-2 rounded-full">{cat.icon}</span>
+                    <span className="material-symbols-outlined text-primary bg-sakura-pink/20 p-2 rounded-2xl">{cat.icon}</span>
                     <div>
-                      <p className="font-body-md text-on-surface">{cat.label}</p>
+                      <p className="font-body-md text-on-surface font-bold">{cat.label}</p>
                       <p className="text-xs text-outline">{cat.type === 'expense' ? 'Gasto' : 'Renda'}</p>
                     </div>
                   </div>
                   {cat.isCustom && (
-                    <button onClick={() => deleteCategory(cat.id)} className="text-error p-2 hover:bg-error/10 rounded-full transition-colors">
+                    <button onClick={() => deleteCategory(cat.id)} className="text-error p-2 hover:bg-error/10 rounded-full transition-colors" title="Excluir Categoria">
                       <span className="material-symbols-outlined text-[20px]">delete</span>
                     </button>
                   )}
@@ -172,18 +172,18 @@ export default function Profile() {
             </div>
 
             <div className="mt-2 pt-4 border-t border-surface-variant/30">
-              <h3 className="font-label-sm mb-2 text-on-surface">Nova Categoria</h3>
-              <div className="flex flex-col gap-2">
+              <h3 className="font-label-sm mb-2 text-on-surface font-bold">Nova Categoria</h3>
+              <div className="flex flex-col gap-2.5">
                 <input
                   type="text"
-                  placeholder="Nome (ex: Salão)"
-                  className="bg-surface-container-low p-3 rounded-lg text-sm w-full outline-none"
+                  placeholder="Nome (ex: Salão, Petshop)"
+                  className="bg-white p-3.5 rounded-2xl border border-outline/20 font-body-md text-on-surface outline-none focus:ring-2 focus:ring-primary shadow-inner"
                   value={newCatName}
                   onChange={(e) => setNewCatName(e.target.value)}
                 />
                 <div className="flex gap-2">
                   <select
-                    className="bg-surface-container-low p-3 rounded-lg text-sm flex-1 outline-none"
+                    className="bg-white p-3.5 rounded-2xl border border-outline/20 font-body-md text-on-surface flex-1 outline-none focus:ring-2 focus:ring-primary"
                     value={newCatType}
                     onChange={(e) => setNewCatType(e.target.value as 'expense' | 'income')}
                   >
@@ -197,7 +197,7 @@ export default function Profile() {
                         setNewCatName("");
                       }
                     }}
-                    className="bg-primary text-white p-3 rounded-lg shadow-sm"
+                    className="bg-sakura-pink text-primary px-5 py-3.5 rounded-2xl font-bold hover:scale-105 active:scale-95 transition-all"
                   >
                     Adicionar
                   </button>
@@ -207,7 +207,7 @@ export default function Profile() {
           </div>
 
           {/* Static FAQ Accordion Section */}
-          <div className="bg-surface-container-lowest rounded-2xl p-5 border border-sakura-pink/20 shadow-sm flex flex-col gap-4">
+          <div className="bg-surface-container-lowest rounded-3xl p-6 border border-sakura-pink/20 shadow-sm flex flex-col gap-4">
             <div className="flex items-center gap-2 border-b border-surface-variant/50 pb-3">
               <span className="material-symbols-outlined text-primary text-[24px]">
                 help
@@ -228,11 +228,11 @@ export default function Profile() {
                 return (
                   <div
                     key={index}
-                    className="border border-surface-variant rounded-xl overflow-hidden transition-colors"
+                    className="border border-sakura-pink/20 rounded-2xl overflow-hidden transition-colors bg-cream-milk/40"
                   >
                     <button
                       onClick={() => toggleFaq(index)}
-                      className="w-full p-4 flex items-center justify-between gap-3 text-left hover:bg-cream-milk/40 transition-colors"
+                      className="w-full p-4 flex items-center justify-between gap-3 text-left hover:bg-cream-milk transition-colors"
                     >
                       <div className="flex items-center gap-3">
                         <span className="material-symbols-outlined text-primary text-[20px]">
@@ -252,7 +252,7 @@ export default function Profile() {
                     </button>
 
                     {isOpen && (
-                      <div className="px-4 pb-4 pt-1 bg-surface-container-low/40 border-t border-surface-variant/30">
+                      <div className="px-4 pb-4 pt-1 bg-white/60 border-t border-sakura-pink/10">
                         <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                           {item.answer}
                         </p>
@@ -266,7 +266,7 @@ export default function Profile() {
 
           {/* Back to Home CTA */}
           <div className="pt-2 flex justify-center w-full">
-            <Link href="/" className="px-6 py-4 flex items-center justify-center gap-2 text-on-surface bg-surface-container-low font-bold hover:bg-sakura-pink/20 transition-colors rounded-xl shadow-sm w-full border border-surface-variant/20">
+            <Link href="/" className="px-6 py-4 flex items-center justify-center gap-2 text-on-surface bg-cream-milk font-bold hover:bg-white transition-colors rounded-2xl shadow-sm border border-sakura-pink/20 w-full">
               <span className="material-symbols-outlined">home</span>
               Voltar para o Site Inicial
             </Link>
@@ -275,7 +275,7 @@ export default function Profile() {
           {/* Footer Info */}
           <div className="py-6 flex flex-col items-center opacity-40 gap-1 text-center">
             <span className="material-symbols-outlined text-[20px]">pets</span>
-            <span className="font-label-sm text-label-sm">
+            <span className="font-label-sm text-label-sm font-bold">
               Meowney v2.4.1 • Edição Sakura 🐾
             </span>
           </div>
