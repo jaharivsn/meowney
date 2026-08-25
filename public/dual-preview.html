@@ -2,27 +2,26 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Dual Browser Preview - Meowney</title>
+  <title>Dual Browser Preview</title>
   <style>
     body { margin: 0; padding: 0; display: flex; height: 100vh; background: #111; color: white; font-family: sans-serif; }
-    .container { display: flex; width: 100%; height: 100%; gap: 10px; padding: 10px; box-sizing: border-box; }
-    .panel { display: flex; flex-direction: column; align-items: center; flex: 1; }
-    .desktop-panel { flex: 2; }
-    .mobile-panel { max-width: 450px; flex-shrink: 0; }
-    iframe { width: 100%; height: 100%; border: 2px solid #333; border-radius: 12px; background: white; }
+    .container { display: flex; width: 100%; height: 100%; gap: 12px; padding: 12px; box-sizing: border-box; align-items: flex-start; overflow: auto; }
+    .panel { display: flex; flex-direction: column; align-items: center; }
     .title { margin-bottom: 8px; font-size: 14px; color: #aaa; }
-    .desktop-iframe { max-width: 1440px; }
+    iframe { border: 2px solid #333; border-radius: 12px; background: white; }
+    .desktop-panel iframe { width: 1440px; height: 900px; }
+    .mobile-panel iframe { width: 390px; height: 844px; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="panel desktop-panel">
-      <div class="title">Desktop (1440x900)</div>
-      <iframe src="/" class="desktop-iframe"></iframe>
+      <div class="title">Desktop (1440×900)</div>
+      <iframe src="/" title="Desktop preview"></iframe>
     </div>
     <div class="panel mobile-panel">
-      <div class="title">Mobile (390x844)</div>
-      <iframe src="/"></iframe>
+      <div class="title">Mobile (390×844)</div>
+      <iframe src="/" title="Mobile preview"></iframe>
     </div>
   </div>
 </body>

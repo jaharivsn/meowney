@@ -8,6 +8,8 @@ import SocialProofSection from "@/components/landing/SocialProofSection";
 import BenefitsGrid from "@/components/landing/BenefitsGrid";
 import FaqSection from "@/components/landing/FaqSection";
 import Footer from "@/components/landing/Footer";
+import PersonalityStrip from "@/components/landing/PersonalityStrip";
+import StickyCta from "@/components/landing/StickyCta";
 
 export default function LandingPage() {
   const faqSchema = {
@@ -19,7 +21,7 @@ export default function LandingPage() {
         "name": "Meus dados vão vazar?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Não! O Meowney é um aplicativo offline-first. Todos os seus dados financeiros ficam armazenados apenas no armazenamento local do seu próprio navegador."
+          "text": "O extrato fica só no seu navegador. Nada vai pra nuvem até você ativar o chat do gato — e aí saem apenas totais e os 10 últimos títulos, nunca a lista completa."
         }
       },
       {
@@ -89,6 +91,7 @@ export default function LandingPage() {
         <HeroSection />
         <AuthorityBar />
         <ZigZagFeatures />
+        <PersonalityStrip />
         <PricingSection />
         <SocialProofSection />
         <BenefitsGrid />
@@ -96,6 +99,7 @@ export default function LandingPage() {
       </main>
 
       <Footer />
+      <StickyCta />
     </div>
   );
 }

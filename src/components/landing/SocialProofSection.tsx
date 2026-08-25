@@ -41,8 +41,8 @@ export default function SocialProofSection() {
       </div>
 
       <div className="max-w-6xl mx-auto text-center relative z-10">
-        <p className="font-label-md text-sakura-pink uppercase tracking-widest font-bold mb-4">Amado por Pais de Pet</p>
-        <h2 className="font-title-lg text-3xl md:text-4xl font-bold mb-12 text-on-surface">O que nossa comunidade diz</h2>
+        <p className="font-label-md text-sakura-pink uppercase tracking-widest font-bold mb-4">Como as pessoas descrevem</p>
+        <h2 className="font-title-lg text-3xl md:text-4xl font-bold mb-12 text-on-surface">O que aparece depois de usar</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left items-stretch">
           {testimonials.map((t) => (

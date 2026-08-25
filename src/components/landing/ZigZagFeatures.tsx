@@ -17,7 +17,7 @@ export default function ZigZagFeatures() {
   const mounted = useMounted();
 
   return (
-    <section id="recursos" className="py-24 md:py-32 px-6 max-w-6xl mx-auto flex flex-col gap-24 md:gap-32 overflow-hidden scroll-mt-16">
+    <section id="recursos" className="landing-reveal py-24 md:py-32 px-6 max-w-6xl mx-auto flex flex-col gap-24 md:gap-32 overflow-hidden scroll-mt-16">
       <div className="text-center mb-4">
         <p className="font-label-md text-sakura-pink uppercase tracking-widest font-bold mb-4">O Passo a Passo</p>
         <h2 className="font-title-lg text-4xl md:text-5xl font-bold text-on-surface">Organização na palma da pata</h2>
@@ -49,9 +49,9 @@ export default function ZigZagFeatures() {
         </div>
         <div className="flex-1 order-1 md:order-2 text-center md:text-left">
           <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-2xl font-bold mb-6 mx-auto md:mx-0">1</div>
-          <h3 className="text-3xl font-bold mb-4 text-on-surface">Adicione gastos num piscar de olhos</h3>
+          <h3 className="text-3xl font-bold mb-4 text-on-surface">Teclado, não planilha</h3>
           <p className="text-lg text-on-surface-variant leading-relaxed font-body-md">
-            Não perca tempo preenchendo planilhas chatas. Com dois toques, você registra a compra daquele sachê premium ou a consulta no veterinário. O saldo atualiza na hora.
+            Lança o sachê em três toques. Recorrência mensal entra sozinha quando você abre o app.
           </p>
         </div>
       </motion.div>
@@ -66,9 +66,9 @@ export default function ZigZagFeatures() {
       >
         <div className="flex-1 text-center md:text-left">
           <div className="w-16 h-16 bg-sakura-pink/20 rounded-2xl flex items-center justify-center text-primary text-2xl font-bold mb-6 mx-auto md:mx-0">2</div>
-          <h3 className="text-3xl font-bold mb-4 text-on-surface">Cat-Stashes: Aposente o porquinho</h3>
+          <h3 className="text-3xl font-bold mb-4 text-on-surface">Cofrinho que desconta do saldo</h3>
           <p className="text-lg text-on-surface-variant leading-relaxed font-body-md">
-            Quer comprar um arranhador novo? Crie uma &quot;Stash&quot; (meta de economia), defina o valor e veja a barra de progresso subir até alcançar o sonho do seu pet.
+            Guardar R$ 50 no Cat-Stash tira R$ 50 do livre. Excluir a meta devolve. Sem contador fantasma.
           </p>
         </div>
         <div className="flex-1 relative flex justify-center w-full">
@@ -107,9 +107,9 @@ export default function ZigZagFeatures() {
         </div>
         <div className="flex-1 order-1 md:order-2 text-center md:text-left">
           <div className="w-16 h-16 bg-surface-variant/30 rounded-2xl flex items-center justify-center text-on-surface text-2xl font-bold mb-6 mx-auto md:mx-0">3</div>
-          <h3 className="text-3xl font-bold mb-4 text-on-surface">100% Offline e Privado</h3>
+          <h3 className="text-3xl font-bold mb-4 text-on-surface">O gato que fala a verdade</h3>
           <p className="text-lg text-on-surface-variant leading-relaxed font-body-md">
-            Tudo acontece no seu próprio aparelho. Não usamos banco de dados na nuvem, não lemos suas informações e não precisamos da sua internet para funcionar.
+            Um card por semana: categoria, reais, comparação. Se você abrir o chat, só um resumo sai do aparelho — nunca o extrato inteiro.
           </p>
         </div>
       </motion.div>

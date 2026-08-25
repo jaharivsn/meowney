@@ -190,4 +190,104 @@
   animation: pawPulse 2s infinite ease-in-out;
 }
 
+/* Utility classes used across app (were referenced but undefined) */
+.font-title-lg {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromTop {
+  from { opacity: 0; transform: translateY(-1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromBottom {
+  from { opacity: 0; transform: translateY(2rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-in-from-top-4 {
+  animation-name: slideInFromTop;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-in-from-bottom-8 {
+  animation-name: slideInFromBottom;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+.animate-shake {
+  animation: shake 0.35s ease-in-out;
+}
+
+.duration-500 { animation-duration: 0.5s; }
+.duration-700 { animation-duration: 0.7s; }
+.delay-150 { animation-delay: 0.15s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-500 { animation-delay: 0.5s; }
+
+@keyframes creamBurst {
+  0% { transform: scale(0.6); opacity: 0; }
+  40% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-cream-burst {
+  animation: creamBurst 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.landing-reveal {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-reveal,
+  .animate-paw-step,
+  .animate-tail-wiggle,
+  .animate-paw-pulse,
+  .animate-in,
+  .fade-in,
+  .slide-in-from-top-4,
+  .slide-in-from-bottom-8,
+  .animate-fadeIn,
+  .animate-shake,
+  .animate-cream-burst {
+    animation: none !important;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
 

@@ -23,7 +23,7 @@ const faqList: FaqData[] = [
   {
     id: "vazar-dados",
     question: "Meus dados vão vazar?",
-    answer: "Não! O Meowney é um aplicativo offline-first. Todos os seus dados financeiros ficam armazenados apenas no armazenamento local do seu próprio navegador."
+    answer: "O extrato fica só no seu navegador. Nada vai pra nuvem até você ativar o chat do gato — e aí saem apenas totais e os 10 últimos títulos, nunca a lista completa."
   },
   {
     id: "gastos-pessoais",

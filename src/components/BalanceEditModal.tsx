@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useFocusTrap } from "@/hooks/use-focus-trap";
 
 interface BalanceEditModalProps {
   isOpen: boolean;
@@ -19,7 +20,10 @@ export function BalanceEditModal({
 }: BalanceEditModalProps) {
   const [balanceInput, setBalanceInput] = useState("");
   const [error, setError] = useState("");
+  const modalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useFocusTrap(modalRef, isOpen, onClose);
 
   useEffect(() => {
     if (isOpen) {
@@ -32,16 +36,6 @@ export function BalanceEditModal({
       }, 50);
     }
   }, [isOpen, currentBalance]);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        onClose();
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -67,6 +61,7 @@ export function BalanceEditModal({
       }}
     >
       <div
+        ref={modalRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="balance-modal-title"

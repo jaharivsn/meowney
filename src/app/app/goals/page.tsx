@@ -9,18 +9,16 @@ export default function Goals() {
   const addGoal = useMeowneyStore((s) => s.addGoal);
   const updateGoalProgress = useMeowneyStore((s) => s.updateGoalProgress);
   const deleteGoal = useMeowneyStore((s) => s.deleteGoal);
-
-  // Modal State for New Goal
+  const [contribGoalId, setContribGoalId] = useState<string | null>(null);
+  const [contribAmount, setContribAmount] = useState("");
+  const [contribError, setContribError] = useState("");
+  const [celebratingId, setCelebratingId] = useState<string | null>(null);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [newTitle, setNewTitle] = useState("");
   const [newTargetAmount, setNewTargetAmount] = useState("");
   const [newCurrentAmount, setNewCurrentAmount] = useState("");
   const [newCategory, setNewCategory] = useState("Acessórios");
   const [formError, setFormError] = useState("");
-
-  // Modal State for Contribution
-  const [contribGoalId, setContribGoalId] = useState<string | null>(null);
-  const [contribAmount, setContribAmount] = useState("");
 
   // Total saved calculation
   const totalSaved = goals.reduce((sum, g) => sum + g.currentAmount, 0);
@@ -62,11 +60,26 @@ export default function Goals() {
   const handleContribute = (e: React.FormEvent) => {
     e.preventDefault();
     if (!contribGoalId) return;
+    setContribError("");
 
     const amount = parseFloat(contribAmount.replace(",", "."));
-    if (isNaN(amount) || amount <= 0) return;
+    if (isNaN(amount) || amount <= 0) {
+      setContribError("Informe um valor maior que zero.");
+      return;
+    }
 
-    updateGoalProgress(contribGoalId, amount);
+    const goalBefore = goals.find((g) => g.id === contribGoalId);
+    const result = updateGoalProgress(contribGoalId, amount);
+    if (!result.ok) {
+      setContribError(result.reason || "Não foi possível guardar.");
+      return;
+    }
+
+    if (goalBefore && goalBefore.currentAmount + amount >= goalBefore.targetAmount) {
+      setCelebratingId(contribGoalId);
+      setTimeout(() => setCelebratingId(null), 1800);
+    }
+
     setContribGoalId(null);
     setContribAmount("");
   };
@@ -128,7 +141,9 @@ export default function Goals() {
                 return (
                   <div
                     key={goal.id}
-                    className="bg-cream-milk rounded-3xl p-6 shadow-sm border border-sakura-pink/20 relative flex flex-col gap-4"
+                    className={`bg-cream-milk rounded-3xl p-6 shadow-sm border border-sakura-pink/20 relative flex flex-col gap-4 ${
+                      celebratingId === goal.id ? "animate-cream-burst" : ""
+                    }`}
                   >
                     <div className="flex justify-between items-start">
                       <div className="flex flex-col">
@@ -183,13 +198,18 @@ export default function Goals() {
                         </span>
                       </div>
                       <div className="text-right flex flex-col items-end gap-1">
-                        <span className="font-label-md text-label-md text-primary italic block font-bold">
-                          {isCompleted ? "🎉 Meta atingida!" : "Quase lá, bichano!"}
-                        </span>
+                          {isCompleted ? (
+                            <span className="font-label-md text-tertiary italic font-bold animate-tail-wiggle inline-block">
+                              Meta atingida!
+                            </span>
+                          ) : (
+                            <span className="font-label-md text-primary italic font-bold">Quase lá, bichano!</span>
+                          )}
                         <button
                           onClick={() => {
                             setContribGoalId(goal.id);
                             setContribAmount("");
+                            setContribError("");
                           }}
                           className="bg-sakura-pink text-primary px-4 py-2.5 rounded-2xl font-label-md active:scale-95 transition-transform flex items-center gap-1 font-bold"
                         >
@@ -381,6 +401,9 @@ export default function Goals() {
               </button>
             </div>
 
+            {contribError && (
+              <p className="text-error text-sm bg-error/10 p-3 rounded-2xl">{contribError}</p>
+            )}
             <form onSubmit={handleContribute} className="flex flex-col gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-label-md text-label-md text-on-surface font-bold">

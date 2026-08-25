@@ -70,4 +70,27 @@ describe('useMeowneyStore', () => {
     expect(state.balance).toBe(1000); // Restored
     expect(state.expenses.length).toBe(0);
   });
+
+  it('should debit balance when contributing to a goal and refund on delete', () => {
+    const store = useMeowneyStore.getState();
+    store.addGoal({ title: 'Ração', targetAmount: 200, currentAmount: 0, category: 'Comida' });
+    const id = useMeowneyStore.getState().goals[0].id;
+    const result = useMeowneyStore.getState().updateGoalProgress(id, 50);
+    expect(result.ok).toBe(true);
+    expect(useMeowneyStore.getState().balance).toBe(950);
+    expect(useMeowneyStore.getState().goals[0].currentAmount).toBe(50);
+    useMeowneyStore.getState().deleteGoal(id);
+    expect(useMeowneyStore.getState().balance).toBe(1000);
+    expect(useMeowneyStore.getState().goals.length).toBe(0);
+  });
+
+  it('should refuse contribution when balance is insufficient', () => {
+    useMeowneyStore.setState({ balance: 20 });
+    const store = useMeowneyStore.getState();
+    store.addGoal({ title: 'Arranhador', targetAmount: 300, currentAmount: 0, category: 'Acessórios' });
+    const id = useMeowneyStore.getState().goals[0].id;
+    const result = useMeowneyStore.getState().updateGoalProgress(id, 50);
+    expect(result.ok).toBe(false);
+    expect(useMeowneyStore.getState().balance).toBe(20);
+  });
 });
