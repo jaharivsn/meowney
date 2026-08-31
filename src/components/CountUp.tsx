@@ -37,8 +37,8 @@ export function CountUp({ value, className }: { value: number; className?: strin
   const [intPart, decPart] = formatted.split(",");
 
   return (
-    <span className={className}>
-      {intPart}
+    <span className={`whitespace-nowrap inline-flex items-baseline ${className || ""}`}>
+      <span>{intPart}</span>
       <span className="text-headline-md font-headline-md opacity-60">,{decPart}</span>
     </span>
   );

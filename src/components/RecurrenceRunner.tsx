@@ -21,12 +21,17 @@ export function RecurrenceRunner() {
       created.length === 1
         ? `Lancei ${created[0].title} automaticamente.`
         : `Lancei ${created.length} recorrências: ${names}.`;
-    setToast(msg);
     if (notificationsEnabled) {
       requestLocalNotification("Meowney", msg);
     }
-    const t = setTimeout(() => setToast(null), 5200);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => {
+      setToast(msg);
+    }, 0);
+    const dismissTimer = setTimeout(() => setToast(null), 5200);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(dismissTimer);
+    };
   }, [isHydrated, processDueRecurrences, notificationsEnabled]);
 
   if (!toast) return null;

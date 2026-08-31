@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMeowneyStore } from "@/lib/store";
+import { useMounted } from "@/hooks/useMounted";
 import { PersonalityPicker } from "@/components/PersonalityPicker";
 import type { PersonalityId } from "@/lib/schemas";
 
@@ -98,16 +99,10 @@ export function TutorialModal({ isOpen: propsIsOpen, onClose }: TutorialModalPro
 
   const [currentStep, setCurrentStep] = useState(0);
   const [direction, setDirection] = useState(1);
-  const [mounted, setMounted] = useState(false);
-  const [picked, setPicked] = useState<PersonalityId | null>(personality);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    setPicked(personality);
-  }, [personality]);
+  const mounted = useMounted();
+  const [pickedCustom, setPickedCustom] = useState<PersonalityId | null>(null);
+  const picked = pickedCustom ?? personality;
+  const setPicked = (p: PersonalityId | null) => setPickedCustom(p);
 
   const isVisible =
     mounted &&
@@ -115,12 +110,15 @@ export function TutorialModal({ isOpen: propsIsOpen, onClose }: TutorialModalPro
       ? propsIsOpen
       : isHydrated && !storeHasSeenTutorial);
 
-  useEffect(() => {
-    if (isVisible) {
-      setCurrentStep(0);
-      setDirection(1);
+  const handleFinish = () => {
+    if (picked) setPersonality(picked);
+    else if (!personality) setPersonality("cheerleader");
+    setHasSeenTutorial(true);
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem("hasSeenTutorial");
     }
-  }, [isVisible]);
+    onClose?.();
+  };
 
   useEffect(() => {
     if (!isVisible) return;
@@ -154,16 +152,6 @@ export function TutorialModal({ isOpen: propsIsOpen, onClose }: TutorialModalPro
       setDirection(-1);
       setCurrentStep((prev) => prev - 1);
     }
-  };
-
-  const handleFinish = () => {
-    if (picked) setPersonality(picked);
-    else if (!personality) setPersonality("cheerleader");
-    setHasSeenTutorial(true);
-    if (typeof window !== "undefined") {
-      window.localStorage.removeItem("hasSeenTutorial");
-    }
-    onClose?.();
   };
 
   return (

@@ -1,0 +1,8 @@
+{
+  "name": "Meowney",
+  "description": "Gamified cat-themed personal finance and expense tracker app with savings goals, personalities, and AI assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

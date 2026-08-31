@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
 import {
   Expense,
   Goal,
@@ -17,10 +17,10 @@ export const DEFAULT_STATE: MeowneyState = {
   categories: [
     { id: 'salary', label: 'Salário', icon: 'payments', type: 'income', color: '#A3E4D7' },
     { id: 'gift_inc', label: 'Presente', icon: 'redeem', type: 'income', color: '#D7BDE2' },
-    { id: 'food', label: 'Comida', icon: 'restaurant', type: 'expense', color: '#FFB7C5' },
-    { id: 'health', label: 'Saúde', icon: 'medical_services', type: 'expense', color: '#A3E4D7' },
-    { id: 'play', label: 'Lazer', icon: 'sports_esports', type: 'expense', color: '#D7BDE2' },
-    { id: 'home', label: 'Casa', icon: 'home', type: 'expense', color: '#FFFDD0' },
+    { id: 'food', label: 'Comida', icon: 'restaurant', type: 'expense', color: '#FFB7C5', monthlyLimit: 500 },
+    { id: 'health', label: 'Saúde', icon: 'medical_services', type: 'expense', color: '#A3E4D7', monthlyLimit: 200 },
+    { id: 'play', label: 'Lazer', icon: 'sports_esports', type: 'expense', color: '#D7BDE2', monthlyLimit: 300 },
+    { id: 'home', label: 'Casa', icon: 'home', type: 'expense', color: '#FFFDD0', monthlyLimit: 800 },
   ],
   hasSeenTutorial: false,
   personality: null,
@@ -277,7 +277,7 @@ export const useMeowneyStore = create<MeowneyStoreState>()(
         expenses = expenses.map((template) => {
           if (!template.recurrence || template.isRecurringInstance) return template;
           let next = template.recurrence.nextDate;
-          let every = template.recurrence.every;
+          const every = template.recurrence.every;
           let current = { ...template };
 
           while (new Date(next) <= now && created.length < 24) {
@@ -368,13 +368,15 @@ export const useMeowneyStore = create<MeowneyStoreState>()(
   )
 );
 
+const emptyStoreSubscribe = () => () => {};
+
 export function useHydratedStore<T>(selector: (state: MeowneyStoreState) => T, fallback: T): T {
   const state = useMeowneyStore(selector);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    emptyStoreSubscribe,
+    () => true,
+    () => false
+  );
 
   if (!mounted) {
     return fallback;

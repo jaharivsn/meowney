@@ -18,24 +18,33 @@ export function BalanceEditModal({
   currentBalance,
   onSave,
 }: BalanceEditModalProps) {
-  const [balanceInput, setBalanceInput] = useState("");
+  const [balanceInput, setBalanceInput] = useState(() => currentBalance.toString());
   const [error, setError] = useState("");
+  const [prevBalance, setPrevBalance] = useState(currentBalance);
+  const [prevOpen, setPrevOpen] = useState(isOpen);
   const modalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useFocusTrap(modalRef, isOpen, onClose);
 
-  useEffect(() => {
+  if (isOpen !== prevOpen || currentBalance !== prevBalance) {
+    setPrevOpen(isOpen);
+    setPrevBalance(currentBalance);
     if (isOpen) {
       setBalanceInput(currentBalance.toString());
       setError("");
-      // Focus input after modal renders
-      setTimeout(() => {
+    }
+  }
+
+  useEffect(() => {
+    if (isOpen) {
+      const timer = setTimeout(() => {
         inputRef.current?.focus();
         inputRef.current?.select();
       }, 50);
+      return () => clearTimeout(timer);
     }
-  }, [isOpen, currentBalance]);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
